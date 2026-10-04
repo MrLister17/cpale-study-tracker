@@ -53,6 +53,8 @@ Only the owner receives direct GitHub write and merge access. Contributors can s
 | Materials and capacity | Private file uploads, quotas, ten seats, waitlist, owner capacity view | Concurrent quota and cross-user tests pass |
 | Release | Auth delivery, privacy/deletion pages, backup/restore rehearsal, CI, preview QA, monitoring | Owner approves production opening |
 
+These milestones and their acceptance items are tracked in [GitHub Issues](https://github.com/MrLister17/cpale-study-tracker/issues). The protected foundation issue is closed; syllabus, planner, quiz, private uploads, and beta-release issues remain open.
+
 ## 6. Verification matrix
 
 - **Planner:** missing target date; May 2027 provisional date; confirmed date update; no weekly hours; short slots; overlapping slots; blackout dates; insufficient hours; missed work; completed history; weak quiz review; final mock allocation.
