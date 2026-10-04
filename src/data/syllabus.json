@@ -1,0 +1,3770 @@
+[
+  {
+    "id": "far",
+    "name": "Financial Accounting and Reporting",
+    "short": "FAR",
+    "color": "#91c762",
+    "pale": "#edf7db",
+    "flower": "lily",
+    "source": "PRC BOA Table of Specifications, effective October 2022",
+    "sourceUrl": "https://www.prc.gov.ph/sites/default/files/2022-30%20BOA%20TOS%20Final.pdf",
+    "topics": [
+      {
+        "id": "far-001",
+        "code": "1.1",
+        "title": "Explain the history, development and functions of IASB, IFRIC and SIC, FRSC AND PIC",
+        "section": "Development of Financial Reporting Framework, Standard-Setting",
+        "page": 1,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-002",
+        "code": "2.1",
+        "title": "Explain the regulation and environment of the profession through the Professional Regulatory Board of Accountancy, the accredited professional organization of professional accountants in the Philippines and the sectors of the practice of accountancy profession and their accreditation requirements",
+        "section": "Development of Financial Reporting Framework, Standard-Setting",
+        "page": 1,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-003",
+        "code": "1.1",
+        "title": "Explain the objective and status of the Conceptual Framework together with the Qualitative Characteristics of Useful Financial Information",
+        "section": "Conceptual Framework, Accounting Process and Presentation of",
+        "page": 1,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-004",
+        "code": "1.2",
+        "title": "Explain the definition of recognition and derecognition criteria and measurement bases for the elements of the financial statements together with the concepts of capital and capital maintenance",
+        "section": "Conceptual Framework, Accounting Process and Presentation of",
+        "page": 1,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-005",
+        "code": "2.1",
+        "title": "Summarize the steps in the accounting process, the use of the special journals, general journal, subsidiary ledgers and general ledgers and completing the accounting cycle, including use of worksheet, adjusting entries, closing entries and reversing entries",
+        "section": "Conceptual Framework, Accounting Process and Presentation of",
+        "page": 1,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-006",
+        "code": "3.1",
+        "title": "Apply the general features, describe the definition of elements and illustrate a classified statement of financial position",
+        "section": "Conceptual Framework, Accounting Process and Presentation of",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-007",
+        "code": "3.2",
+        "title": "Apply the general features, describe the nature and function of expense, describe the components of profit from continuing operations and the components of discontinued operations and illustrate the statement of comprehensive income together with the statement of changes in equity",
+        "section": "Conceptual Framework, Accounting Process and Presentation of",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-008",
+        "code": "3.3",
+        "title": "Apply the general features, describe the sections and illustrate the statement of cash flows from operations both the direct and indirect methods",
+        "section": "Conceptual Framework, Accounting Process and Presentation of",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-009",
+        "code": "3.4",
+        "title": "Prepare Notes to the Financial Statements",
+        "section": "Conceptual Framework, Accounting Process and Presentation of",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-010",
+        "code": "3.5",
+        "title": "Compute and Disclose Basic and Diluted Earnings Per Share Information",
+        "section": "Conceptual Framework, Accounting Process and Presentation of",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-011",
+        "code": "1.1",
+        "title": "Describe the nature and composition of cash",
+        "section": "Cash and other Financial Assets",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-012",
+        "code": "1.2",
+        "title": "Prepare a bank reconciliation",
+        "section": "Cash and other Financial Assets",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-013",
+        "code": "1.3",
+        "title": "Apply the accounting for petty cash fund",
+        "section": "Cash and other Financial Assets",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-014",
+        "code": "2.1",
+        "title": "Apply the recognition principles for financial assets at fair value through profit or loss, recognition principles for financial assets at fair value through other comprehensive income and recognition principles for financial assets at amortized cost",
+        "section": "Cash and other Financial Assets",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-015",
+        "code": "2.2",
+        "title": "Measure trade and other receivables including valuation using allowance for doubtful accounts and transfer of receivables (pledging, assignment and factoring)",
+        "section": "Cash and other Financial Assets",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-016",
+        "code": "2.3",
+        "title": "Measure other financial assets at amortized cost (including investment in bonds)",
+        "section": "Cash and other Financial Assets",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-017",
+        "code": "2.4",
+        "title": "Discuss investment in associates and joint venture",
+        "section": "Cash and other Financial Assets",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-018",
+        "code": "1.1",
+        "title": "Describe the nature and determine the capitalizable cost at initial recognition; and, apply inventory cost flow assumptions and subsequent measurement at lower of cost or estimated selling price less cost to complete and sell",
+        "section": "Non-financial Assets",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-019",
+        "code": "1.2",
+        "title": "Apply estimation procedures – gross profit and retail inventory method",
+        "section": "Non-financial Assets",
+        "page": 2,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-020",
+        "code": "2.1",
+        "title": "Describe the nature and determine capitalizable cost at initial recognition; and measure borrowing costs",
+        "section": "Non-financial Assets",
+        "page": 3,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-021",
+        "code": "2.2",
+        "title": "Identify subsequent expenditures and apply subsequent measurement based on cost with consideration on depreciation, depreciation methods and changes in useful life and depreciation methods",
+        "section": "Non-financial Assets",
+        "page": 3,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-022",
+        "code": "2.3",
+        "title": "Determine Revaluation and Impairment and account for retirement and disposals",
+        "section": "Non-financial Assets",
+        "page": 3,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-023",
+        "code": "3.1",
+        "title": "Describe the nature, determine capitalizable cost at initial recognition, apply measurement subsequent to initial recognition using cost method and fair value method and account for derecognition and reclassification",
+        "section": "Non-financial Assets",
+        "page": 3,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-024",
+        "code": "4.1",
+        "title": "Describe the nature, determine capitalizable cost at initial recognition, identify subsequent expenditures, apply subsequent measurements for finite lives assets – amortization and indefinite lives assets, determine impairment and account for derecognition",
+        "section": "Non-financial Assets",
+        "page": 3,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-025",
+        "code": "5.1",
+        "title": "Describe the nature, distinction from bearer plants and agricultural produce, determine capitalizable cost at initial recognition and apply subsequent measurement",
+        "section": "Non-financial Assets",
+        "page": 3,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-026",
+        "code": "6.1",
+        "title": "Describe the nature – criteria for this classification, determine capitalizable cost at initial recognition, apply measurement subsequent to initial recognition and account for Reclassification and Derecognition",
+        "section": "Non-financial Assets",
+        "page": 3,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-027",
+        "code": "7.1",
+        "title": "Describe and measure prepaid expenses and other assets",
+        "section": "Non-financial Assets",
+        "page": 3,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-028",
+        "code": "1.1",
+        "title": "Identify the classification of financial liabilities and measure initial recognition",
+        "section": "Financial Liabilities",
+        "page": 3,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-029",
+        "code": "1.2",
+        "title": "Account for debt issue cost",
+        "section": "Financial Liabilities",
+        "page": 3,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-030",
+        "code": "1.3",
+        "title": "Illustrate measuring using effective interest method",
+        "section": "Financial Liabilities",
+        "page": 3,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-031",
+        "code": "1.4",
+        "title": "Illustrate troubled debt restructuring",
+        "section": "Financial Liabilities",
+        "page": 3,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-032",
+        "code": "1.1",
+        "title": "Account for liabilities arising from customer loyalty programs",
+        "section": "Non-financial liabilities, provisions and contingencies",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-033",
+        "code": "1.2",
+        "title": "Illustrate warranties and product guarantees",
+        "section": "Non-financial liabilities, provisions and contingencies",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-034",
+        "code": "1.3",
+        "title": "Explain unearned revenues arising from contracts, gift certificates, and subscriptions",
+        "section": "Non-financial liabilities, provisions and contingencies",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-035",
+        "code": "1.4",
+        "title": "Describe other provisions and contingencies",
+        "section": "Non-financial liabilities, provisions and contingencies",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-036",
+        "code": "1.1",
+        "title": "Discuss initial issuance and stock issuance cost",
+        "section": "Shareholders’ Equity",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-037",
+        "code": "1.2",
+        "title": "Account for treasury share transactions",
+        "section": "Shareholders’ Equity",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-038",
+        "code": "1.3",
+        "title": "Account for the retirement, conversion",
+        "section": "Shareholders’ Equity",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-039",
+        "code": "2.1",
+        "title": "Carry out correction of prior period errors and change in accounting policies",
+        "section": "Shareholders’ Equity",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-040",
+        "code": "2.2",
+        "title": "Compute dividends",
+        "section": "Shareholders’ Equity",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-041",
+        "code": "2.3",
+        "title": "Apply the recognition principles for quasi reorganization and recapitalization",
+        "section": "Shareholders’ Equity",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-042",
+        "code": "3.1",
+        "title": "Describe cumulative other comprehensive income",
+        "section": "Shareholders’ Equity",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-043",
+        "code": "4.1",
+        "title": "Compute book value per share",
+        "section": "Shareholders’ Equity",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-044",
+        "code": "1.1",
+        "title": "Describe and account for share-based payment transactions for Equity-settled, Cash-settled and Equity-settled with cash alternative",
+        "section": "Other Topics",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-045",
+        "code": "2.1",
+        "title": "Account for the initial recognition of right-of-use asset and lease liability on the books of the lessee, determine subsequent measurement of right-of-use asset and lease liability (including changes in estimates)",
+        "section": "Other Topics",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-046",
+        "code": "2.2",
+        "title": "Describe financial statement presentation of right-of-use asset and lease liability on the books of the lessee and discuss exemption to recognition and measurement principles",
+        "section": "Other Topics",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-047",
+        "code": "2.3",
+        "title": "Account for direct finance lease, manufacturer’s or dealer’s lease and operating lease",
+        "section": "Other Topics",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-048",
+        "code": "2.4",
+        "title": "Account for sale-leaseback",
+        "section": "Other Topics",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-049",
+        "code": "3.1",
+        "title": "Measure accounting profit and taxable profit and explain book basis and tax basis",
+        "section": "Other Topics",
+        "page": 4,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-050",
+        "code": "3.2",
+        "title": "Compute and record the accounting for current income tax and deferred income tax, deferred tax liability (asset) and current income tax liability (asset) and illustrate financial statement presentation and disclosure",
+        "section": "Other Topics",
+        "page": 5,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-051",
+        "code": "4.1",
+        "title": "Describe the nature and classification, apply the recognition and measurement of employee benefit costs under defined benefit plan and defined contribution plan and illustrate the presentation and disclosures",
+        "section": "Other Topics",
+        "page": 5,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-052",
+        "code": "5.1",
+        "title": "Describe the purpose and components of interim financial reports and apply the recognition of income, expenses, assets and liabilities for interim reporting",
+        "section": "Other Topics",
+        "page": 5,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-053",
+        "code": "6.1",
+        "title": "Identify operating segments and reporting segment information",
+        "section": "Other Topics",
+        "page": 5,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "far-054",
+        "code": "1.1",
+        "title": "Describe and illustrate the applicability and salient differences from PFRS of the following reporting frameworks: PFRS for SMEs, PFRS for Small Entities and Reporting for microenterprises",
+        "section": "Other Reporting Frameworks",
+        "page": 5,
+        "status": "needs_editorial_review"
+      }
+    ]
+  },
+  {
+    "id": "afar",
+    "name": "Advanced Financial Accounting and Reporting",
+    "short": "AFAR",
+    "color": "#f6a2ba",
+    "pale": "#fff0f4",
+    "flower": "camellia",
+    "source": "PRC BOA Table of Specifications, effective October 2022",
+    "sourceUrl": "https://www.prc.gov.ph/sites/default/files/2022-30%20BOA%20TOS%20Final.pdf",
+    "topics": [
+      {
+        "id": "afar-001",
+        "code": "1.1.1",
+        "title": "Describe the nature, scope, and objectives of partnership accounting and conceptually differentiate it from single proprietorship and corporation accounting",
+        "section": "Core syllabus",
+        "page": 6,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-002",
+        "code": "1.1.2",
+        "title": "Describe the concepts, principles, rules, practices, and procedures applicable in partnership accounting",
+        "section": "Core syllabus",
+        "page": 6,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-003",
+        "code": "1.2.1",
+        "title": "Compute and account for the initial capital contribution of the partners in the partnership",
+        "section": "Core syllabus",
+        "page": 6,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-004",
+        "code": "1.3",
+        "title": "Operations, Dissolutions, and Changes in Ownership of Interest of the Partners Compute, account, and allocate the changes in the capital balances of the partners as a result of:",
+        "section": "Core syllabus",
+        "page": 6,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-005",
+        "code": "1.4",
+        "title": "Liquidation of Partnership Compute the amount of settlement to the partners after liquidating the partnership under:",
+        "section": "Core syllabus",
+        "page": 6,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-006",
+        "code": "2.4",
+        "title": "Determine the order of priority of the claimants to the company assets of a corporation subject to liquidation",
+        "section": "Core syllabus",
+        "page": 7,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-007",
+        "code": "3.1.1",
+        "title": "Describe the nature and scope of joint operations",
+        "section": "Core syllabus",
+        "page": 7,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-008",
+        "code": "3.1.2",
+        "title": "Differentiate Joint Operations from Business Combinations",
+        "section": "Core syllabus",
+        "page": 7,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-009",
+        "code": "3.1.3",
+        "title": "Apply the standards, principles, and methods in accounting for joint operation transactions",
+        "section": "Core syllabus",
+        "page": 7,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-010",
+        "code": "3.2.1",
+        "title": "Describe the nature and scope of joint ventures",
+        "section": "Core syllabus",
+        "page": 7,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-011",
+        "code": "3.2.2",
+        "title": "Differentiate Joint Venture from Business Combinations",
+        "section": "Core syllabus",
+        "page": 7,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-012",
+        "code": "3.2.3",
+        "title": "Apply the standards, principles, and methods in accounting for joint venture transactions",
+        "section": "Core syllabus",
+        "page": 7,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-013",
+        "code": "1",
+        "title": "Recognize revenue from contracts with customers",
+        "section": "Core syllabus",
+        "page": 8,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-014",
+        "code": "4.1.1",
+        "title": "Describe the Five-steps model framework",
+        "section": "Core syllabus",
+        "page": 8,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-015",
+        "code": "4.1.2.9.1",
+        "title": "Prepare journal entries and determine revenue, costs, and gross profit under:",
+        "section": "Core syllabus",
+        "page": 8,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-016",
+        "code": "4.1.2.9.2",
+        "title": "Determine the amount of Contract Asset/Contract Liabilities based on the performance obligation",
+        "section": "Core syllabus",
+        "page": 9,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-017",
+        "code": "4.1.2.10.1",
+        "title": "Determine the amount of revenue, costs, and gross profit for:",
+        "section": "Core syllabus",
+        "page": 9,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-018",
+        "code": "4.1.2.11.1",
+        "title": "Prepare journal entries to record the sale of merchandise by the consignee to third parties and its remittance to the consignor",
+        "section": "Core syllabus",
+        "page": 9,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-019",
+        "code": "4.1.2.11.2",
+        "title": "Solve for the value of ending inventory",
+        "section": "Core syllabus",
+        "page": 9,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-020",
+        "code": "4.1.3",
+        "title": "Solve for the amount to be presented in the Financial Statement",
+        "section": "Core syllabus",
+        "page": 9,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-021",
+        "code": "1",
+        "title": "Prepare journal entries for transactions on the books of the Home Office and the Branch applying",
+        "section": "Core syllabus",
+        "page": 9,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-022",
+        "code": "5.2",
+        "title": "Compute and reconcile reciprocal accounts",
+        "section": "Core syllabus",
+        "page": 9,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-023",
+        "code": "5.3",
+        "title": "Prepare individual and combined financial statements",
+        "section": "Core syllabus",
+        "page": 9,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-024",
+        "code": "5.4",
+        "title": "Determine the impact in the Financial Statements of agency transactions",
+        "section": "Core syllabus",
+        "page": 9,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-025",
+        "code": "6.1",
+        "title": "Describe the nature, scope, and characteristics of a business combination transactions",
+        "section": "Core syllabus",
+        "page": 9,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-026",
+        "code": "6.2.4",
+        "title": "Prepare journal entries in the books of the acquirer",
+        "section": "Core syllabus",
+        "page": 10,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-027",
+        "code": "1",
+        "title": "Determine the carrying amount of Investment in subsidiaries, associates, joint ventures and its effect on the profit or loss applying the following methods:",
+        "section": "Core syllabus",
+        "page": 10,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-028",
+        "code": "7.2",
+        "title": "Determine the treatment of dividends and their related disclosures in applying the accounting policies in the Investment of subsidiaries, associates, and joint ventures",
+        "section": "Core syllabus",
+        "page": 10,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-029",
+        "code": "1",
+        "title": "Determine the consolidation procedures and the amount to be presented in the financial statements relating to:",
+        "section": "Core syllabus",
+        "page": 10,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-030",
+        "code": "8.1.3",
+        "title": "Determine the amount of:",
+        "section": "Core syllabus",
+        "page": 10,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-031",
+        "code": "1",
+        "title": "Identify the criteria for initial recognition, subsequent measurement, and de-recognition of derivatives",
+        "section": "Core syllabus",
+        "page": 10,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-032",
+        "code": "9.1.1",
+        "title": "Determine the number of derivatives to be recognized in the financial statements and consideration of fair value measurement to it",
+        "section": "Core syllabus",
+        "page": 10,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-033",
+        "code": "9.1.2",
+        "title": "Identify the types of derivative and determine the values of",
+        "section": "Core syllabus",
+        "page": 10,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-034",
+        "code": "9.2",
+        "title": "Determine the impact or effect of hedging transactions in the investor's point of view under:",
+        "section": "Core syllabus",
+        "page": 11,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-035",
+        "code": "11.0",
+        "title": "Not-for-Profit Organizations Describe the nature of business transactions and financial reporting implications of:",
+        "section": "Core syllabus",
+        "page": 11,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-036",
+        "code": "1",
+        "title": "Describe the basic concepts in Government Accounting",
+        "section": "Core syllabus",
+        "page": 11,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-037",
+        "code": "2",
+        "title": "Identify the procedures in government budgeting",
+        "section": "Core syllabus",
+        "page": 11,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-038",
+        "code": "12.3",
+        "title": "Identify the accounting policies under the Government Accounting Manual (GAM)",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-039",
+        "code": "12.4",
+        "title": "Prepare Journal Entries (Books of National Government Agency)",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-040",
+        "code": "1",
+        "title": "Describe the system of cost accumulation or costing system",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-041",
+        "code": "13.1.1",
+        "title": "Differentiate actual costing, normal costing, and standard costing",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-042",
+        "code": "13.2.1",
+        "title": "Record transactions using a job order costing procedures",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-043",
+        "code": "13.2.2",
+        "title": "Compute Cost of Goods Manufactured and Sold",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-044",
+        "code": "13.2.3",
+        "title": "Account for spoiled units and rework costs",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-045",
+        "code": "13.2.4",
+        "title": "Describe the cost accumulation procedures for materials, labor, and overhead",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-046",
+        "code": "13.3.1",
+        "title": "Record transactions using a process costing procedures",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-047",
+        "code": "13.3.2",
+        "title": "Determine cost of production under",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-048",
+        "code": "13.3.3",
+        "title": "Account for lost units in scraps, wastes, spoilages, and reworks",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-049",
+        "code": "13.4.2",
+        "title": "Prepare the journal entries",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-050",
+        "code": "13.4.1",
+        "title": "Determine cost of materials, labor, and overhead to be backflushed to finished goods",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-051",
+        "code": "13.5.2",
+        "title": "Compute total manufacturing cost and cost per unit using ABC and Traditional costing",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-052",
+        "code": "13.5.3",
+        "title": "Apply the concepts of activity levels, cost pools, and activity drivers",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-053",
+        "code": "13.5.4",
+        "title": "Determine cost pool rates and their application to overhead costs",
+        "section": "Core syllabus",
+        "page": 12,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-054",
+        "code": "13.6.1",
+        "title": "Compute and allocate joint (common) costs at the point of slit-off using:",
+        "section": "Core syllabus",
+        "page": 13,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-055",
+        "code": "14.1.1",
+        "title": "Identify the different types of insurance contracts",
+        "section": "Core syllabus",
+        "page": 13,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-056",
+        "code": "14.1.2",
+        "title": "Apply changes in Accounting Policies",
+        "section": "Core syllabus",
+        "page": 13,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-057",
+        "code": "14.1.3",
+        "title": "Recognize and measure insurance and reinsurance contracts",
+        "section": "Core syllabus",
+        "page": 13,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-058",
+        "code": "14.2.1.1",
+        "title": "Determine the value of financial assets",
+        "section": "Core syllabus",
+        "page": 13,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-059",
+        "code": "14.2.1.2",
+        "title": "Determine the value of intangible assets",
+        "section": "Core syllabus",
+        "page": 13,
+        "status": "needs_editorial_review"
+      }
+    ]
+  },
+  {
+    "id": "mas",
+    "name": "Management Services",
+    "short": "MAS",
+    "color": "#e7b552",
+    "pale": "#fff5d8",
+    "flower": "marigold",
+    "source": "PRC BOA Table of Specifications, effective October 2022",
+    "sourceUrl": "https://www.prc.gov.ph/sites/default/files/2022-30%20BOA%20TOS%20Final.pdf",
+    "topics": [
+      {
+        "id": "mas-001",
+        "code": "1",
+        "title": "Describe the objectives, role and scope of management accounting and differentiate it from financial accounting, roles and activities of controller and treasurer, international certifications in management accounting and global trends in management accounting",
+        "section": "Management Accounting",
+        "page": 14,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-002",
+        "code": "2.1",
+        "title": "Identify and differentiate the different types of costs (e.g., direct, indirect; fixed, variable; inventoriable, period; opportunity cost, sunk cost) and their characteristics and behavior; utilize cost behavior segregation and cost behavior prediction techniques to determine their usefulness in cost planning and financial and management reporting",
+        "section": "Management Accounting",
+        "page": 14,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-003",
+        "code": "2.2",
+        "title": "Analyze the relationship of costs, volume, and sales to calculate break-even points and target profit (CVP Analysis) under various scenarios. Apply sensitivity analysis including determination of indifference point. Apply the concepts of margin of safety and degree of operating leverage. Analyze CVP relationships in multi-product companies",
+        "section": "Management Accounting",
+        "page": 14,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-004",
+        "code": "2.3",
+        "title": "Apply the concept of traditional and activity-based costing in:",
+        "section": "Management Accounting",
+        "page": 14,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-005",
+        "code": "2.3.6",
+        "title": "Determine cost pool rates and overhead allocation",
+        "section": "Management Accounting",
+        "page": 14,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-006",
+        "code": "2.4.1",
+        "title": "Describe the budgeting process",
+        "section": "Management Accounting",
+        "page": 14,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-007",
+        "code": "2.4.2",
+        "title": "Prepare a master budget by analyzing the behavior of revenues and costs and use it to calculate and prepare different types of supporting budgets (e.g., production, inventory levels, operating expenses, cash budget) for planning and control purposes",
+        "section": "Management Accounting",
+        "page": 14,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-008",
+        "code": "2.5",
+        "title": "Apply the concept of standard costing and variance analysis in planning and control in terms of cost, sales, and gross profit variations. Apply appropriate techniques in",
+        "section": "Management Accounting",
+        "page": 14,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-009",
+        "code": "3.1",
+        "title": "Identify and differentiate the different types of responsibility centers (i.e., profit center, cost center, investment center) and determine the proper accounting of transactions affecting each one. Determine the proper use of transfer pricing in measuring the performance of business operations",
+        "section": "Management Accounting",
+        "page": 15,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-010",
+        "code": "3.2",
+        "title": "Identify and differentiate the four perspectives of the balanced scorecard and formulate performance indicators to evaluate, monitor and improve business performance",
+        "section": "Management Accounting",
+        "page": 15,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-011",
+        "code": "4.1",
+        "title": "Identify and use appropriate relevant costs in making analysis and business decision for short-term non routine scenarios. Understand and apply the concept of opportunity costs",
+        "section": "Management Accounting",
+        "page": 15,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-012",
+        "code": "4.2",
+        "title": "Determine the key elements of capital budgeting investment decisions (net investment, operating cash flow and cost of capital) and evaluate the same using both discounted and non-discounted cash flow techniques",
+        "section": "Management Accounting",
+        "page": 15,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-013",
+        "code": "1",
+        "title": "Identify and describe the nature, objectives, and scope of financial management in making business decisions",
+        "section": "Financial Management",
+        "page": 15,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-014",
+        "code": "2",
+        "title": "Analyze and use financial data derived from financial statements in evaluating the performance of the management and make business decisions",
+        "section": "Financial Management",
+        "page": 15,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-015",
+        "code": "3",
+        "title": "Apply different working capital (cash, receivables, inventory, and other short-term resources) management methods and techniques in making short-term business decisions",
+        "section": "Financial Management",
+        "page": 15,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-016",
+        "code": "4",
+        "title": "Determine the key elements of capital budgeting investment decisions (net investment, operating cash flow and cost of capital) and evaluate the same using both discounted and non discounted cash flow techniques",
+        "section": "Financial Management",
+        "page": 15,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-017",
+        "code": "5",
+        "title": "Apply the concept of risk and leverage. Understand and analyze situations involving the types of risks, measures of risks and degree of operating, financial and total leverage. Distinguish the different types and measurement of risks and apply their relationships with the rate of returns. Identify and apply various risk measurement models",
+        "section": "Financial Management",
+        "page": 15,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-018",
+        "code": "6",
+        "title": "Utilize various techniques in managing capital structure and in dealing with long-term financing decisions. Identify and apply the basic concepts and tools of capital structure management sources of intermediate and long-term financing and cost of capital",
+        "section": "Financial Management",
+        "page": 15,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-019",
+        "code": "7",
+        "title": "Understand the workings of the Philippine stock exchange and other houses. Understand the various types of financial markets (money market, capital market and derivatives market) Apply valuation techniques for various types of derivatives (forwards, futures and options)",
+        "section": "Financial Management",
+        "page": 15,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-020",
+        "code": "1",
+        "title": "Identify and describe the basic concepts of macroeconomics that are relevant in making business decisions, and apply the concepts properly",
+        "section": "Economic Concepts Essential to Obtaining an Understanding of Entity’s Business and",
+        "page": 16,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "mas-021",
+        "code": "2",
+        "title": "Identify and describe the basic concepts of microeconomics that are relevant in making business decisions, and apply the concepts properly",
+        "section": "Economic Concepts Essential to Obtaining an Understanding of Entity’s Business and",
+        "page": 16,
+        "status": "needs_editorial_review"
+      }
+    ]
+  },
+  {
+    "id": "aud",
+    "name": "Auditing",
+    "short": "AUD",
+    "color": "#8ea9e9",
+    "pale": "#eaf0ff",
+    "flower": "bluebell",
+    "source": "PRC BOA Table of Specifications, effective October 2022",
+    "sourceUrl": "https://www.prc.gov.ph/sites/default/files/2022-30%20BOA%20TOS%20Final.pdf",
+    "topics": [
+      {
+        "id": "aud-001",
+        "code": "1.1.1",
+        "title": "Discuss the nature, objective and elements",
+        "section": "AUDITING THEORY",
+        "page": 17,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-002",
+        "code": "1.1.2",
+        "title": "Identify the types of assurance engagements (audits, reviews, other assurance engagements)",
+        "section": "AUDITING THEORY",
+        "page": 17,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-003",
+        "code": "1.2.1",
+        "title": "Discuss the nature, philosophy, and objectives",
+        "section": "AUDITING THEORY",
+        "page": 17,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-004",
+        "code": "1.2.2",
+        "title": "Differentiate the types of audits",
+        "section": "AUDITING THEORY",
+        "page": 17,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-005",
+        "code": "2.1",
+        "title": "Explain the overview of the risk-based audit process",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-006",
+        "code": "2.2",
+        "title": "Illustrate and explain the pre-engagement procedures",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-007",
+        "code": "2.3",
+        "title": "Explain the scope and purposes of audit planning",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-008",
+        "code": "2.3.1",
+        "title": "Identify and discuss the essential planning procedures",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-009",
+        "code": "2.4",
+        "title": "Perform the direction, supervision, and review",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-010",
+        "code": "3.1",
+        "title": "Describe and discuss the industry, regulatory and other external factors, including the applicable financial reporting framework",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-011",
+        "code": "3.1.1",
+        "title": "Describe the nature of the entity",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-012",
+        "code": "3.1.2",
+        "title": "Discuss the objectives and strategies and related business risks",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-013",
+        "code": "3.1.3",
+        "title": "Describe and discuss the measurement and review of the entity’s financial performance",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-014",
+        "code": "3.2",
+        "title": "Discuss and explain Internal Control",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-015",
+        "code": "3.2.1",
+        "title": "Identify and explain the basic concepts and elements of internal control",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-016",
+        "code": "3.2.2",
+        "title": "Identify and discuss consideration of accounting and internal control systems",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-017",
+        "code": "3.3",
+        "title": "Identify, discuss, and assess the risks of material misstatement",
+        "section": "AUDITING THEORY",
+        "page": 18,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-018",
+        "code": "3.4",
+        "title": "Discuss and communicate the risks of material misstatement with those charged with governance and management",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-019",
+        "code": "4.1",
+        "title": "Describe and discuss the nature and significance",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-020",
+        "code": "4.2",
+        "title": "Identify the evidential matters",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-021",
+        "code": "4.3",
+        "title": "Perform the audit procedures/techniques including audit selection",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-022",
+        "code": "4.4",
+        "title": "Prepare audit working papers",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-023",
+        "code": "5.1",
+        "title": "Discuss the completion of the audit and audit report preparation",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-024",
+        "code": "5.1.1",
+        "title": "Describe the analytical procedures for overall review",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-025",
+        "code": "5.1.2",
+        "title": "Determine related party transactions",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-026",
+        "code": "5.1.3",
+        "title": "Discuss subsequent events review",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-027",
+        "code": "5.1.4",
+        "title": "Discuss the assessment of going concern assumption",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-028",
+        "code": "5.1.5",
+        "title": "Explain how to obtain client’s representation letter",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-029",
+        "code": "5.1.6",
+        "title": "Discuss and describe how to evaluate findings, formulate an opinion, and draft the audit report",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-030",
+        "code": "5.2",
+        "title": "Identify and discuss post-audit responsibilities",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-031",
+        "code": "5.2.1",
+        "title": "Discuss subsequent discovery of facts",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-032",
+        "code": "5.2.2",
+        "title": "Discuss subsequent discovery of omitted procedures",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-033",
+        "code": "6.1",
+        "title": "Illustrate an unqualified auditor’s report",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-034",
+        "code": "6.2",
+        "title": "Explain the basic elements of the unqualified auditor’s report",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-035",
+        "code": "6.3",
+        "title": "Describe a modified auditor’s opinion report",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-036",
+        "code": "6.3.1",
+        "title": "Identify matters that do not affect the auditor’s opinion",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-037",
+        "code": "6.3.2",
+        "title": "Identify matters that do affect the auditor’s opinion",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-038",
+        "code": "6.4",
+        "title": "Prepare and discuss report on comparatives",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-039",
+        "code": "6.5",
+        "title": "Identify key audit matters",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-040",
+        "code": "7.1",
+        "title": "Describe and identify the Internal Control in a CIS environment",
+        "section": "AUDITING THEORY",
+        "page": 19,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-041",
+        "code": "7.2",
+        "title": "Discuss, describe, and identify the basic approach to the audit of CIS environment",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-042",
+        "code": "7.3",
+        "title": "Describe and discuss how to audit new technologies",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-043",
+        "code": "8.1",
+        "title": "Identify and describe the procedures and reports on special purpose audit engagements",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-044",
+        "code": "8.1.1",
+        "title": "Discuss the general considerations",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-045",
+        "code": "8.1.2",
+        "title": "Discuss the audit of financial statements prepared in accordance with a comprehensive basis of accounting other than GAAP in the Philippines",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-046",
+        "code": "8.1.3",
+        "title": "Describe the audit of a component of financial statements",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-047",
+        "code": "8.1.4",
+        "title": "Describe the reports on compliance with contractual agreements",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-048",
+        "code": "8.1.5",
+        "title": "Describe the reports on summarized financial statements",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-049",
+        "code": "8.2",
+        "title": "Discuss attestation and related services",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-050",
+        "code": "8.2.1",
+        "title": "Discuss the examination of prospective financial information",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-051",
+        "code": "8.2.2",
+        "title": "Describe engagements to review financial statements",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-052",
+        "code": "8.2.3",
+        "title": "Describe engagements to perform agreed upon procedures regarding financial information",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-053",
+        "code": "8.2.4",
+        "title": "Describe engagements to prepare or compile financial information",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-054",
+        "code": "8.2.5",
+        "title": "Describe and discuss service organization controls and the service of auditor’s report",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-055",
+        "code": "8.2.6",
+        "title": "Identify and discuss engagements performed in accordance with other criteria",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-056",
+        "code": "8.3",
+        "title": "Describe the role of CPAs in rendering other services (aside from auditing and attestation)",
+        "section": "AUDITING THEORY",
+        "page": 20,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-057",
+        "code": "1.1",
+        "title": "Discuss corporate governance",
+        "section": "AUDITING PRACTICE",
+        "page": 21,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-058",
+        "code": "1.2",
+        "title": "Identify and discuss the ethical standards and responsibilities of professional accountants",
+        "section": "AUDITING PRACTICE",
+        "page": 21,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-059",
+        "code": "1.3",
+        "title": "Describe and discuss the system of quality management",
+        "section": "AUDITING PRACTICE",
+        "page": 21,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-060",
+        "code": "1.4",
+        "title": "Determine and discuss the regulatory requirements related to the practice, accreditation, and regulation of public accounting and auditing services",
+        "section": "AUDITING PRACTICE",
+        "page": 21,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-061",
+        "code": "2.1",
+        "title": "Explain the overview of Risk-based audit",
+        "section": "AUDITING PRACTICE",
+        "page": 21,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-062",
+        "code": "2.2",
+        "title": "Explain the overview of risk assessment",
+        "section": "AUDITING PRACTICE",
+        "page": 21,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-063",
+        "code": "2.3",
+        "title": "Perform the preliminary activities",
+        "section": "AUDITING PRACTICE",
+        "page": 21,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-064",
+        "code": "2.3.1",
+        "title": "Discuss the engagement acceptance and continuance",
+        "section": "AUDITING PRACTICE",
+        "page": 21,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-065",
+        "code": "2.4",
+        "title": "Prepare and discuss the audit plan",
+        "section": "AUDITING PRACTICE",
+        "page": 21,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-066",
+        "code": "2.4.1",
+        "title": "Describe Overall audit strategy",
+        "section": "AUDITING PRACTICE",
+        "page": 21,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-067",
+        "code": "2.4.2",
+        "title": "Determine and apply the use of materiality",
+        "section": "AUDITING PRACTICE",
+        "page": 21,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-068",
+        "code": "2.4.4.6",
+        "title": "Record to report",
+        "section": "AUDITING PRACTICE",
+        "page": 21,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-069",
+        "code": "2.5",
+        "title": "Perform risk assessment procedures entity wide and business process level",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-070",
+        "code": "2.5.1",
+        "title": "Identify and assess inherent risks",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-071",
+        "code": "2.5.2",
+        "title": "Identify objectives and key risks",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-072",
+        "code": "2.5.3",
+        "title": "Describe and explain internal control",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-073",
+        "code": "2.5.4",
+        "title": "Evaluate internal control",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-074",
+        "code": "3.1",
+        "title": "Explain the overview of risk response",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-075",
+        "code": "3.3",
+        "title": "Determine the extent of testing",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-076",
+        "code": "3.4.1",
+        "title": "Prepare audit working papers",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-077",
+        "code": "3.4.2",
+        "title": "Prepare analysis worksheets",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-078",
+        "code": "3.5",
+        "title": "Prepare written representations",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-079",
+        "code": "4.1",
+        "title": "Discuss the overview of reporting the audit",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-080",
+        "code": "4.2",
+        "title": "Perform audit evidence evaluation",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-081",
+        "code": "4.3.1",
+        "title": "Determine the criteria and quality of communication",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-082",
+        "code": "4.4",
+        "title": "Prepare the audit report",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-083",
+        "code": "4.4.1",
+        "title": "Perform any modification to the auditor’s report",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-084",
+        "code": "4.4.2",
+        "title": "Determine the need of Emphasis of matter and other matter paragraphs",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-085",
+        "code": "4.4.3",
+        "title": "Prepare comparative information",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "aud-086",
+        "code": "4.5",
+        "title": "Perform monitoring and closing of the engagement",
+        "section": "AUDITING PRACTICE",
+        "page": 22,
+        "status": "needs_editorial_review"
+      }
+    ]
+  },
+  {
+    "id": "rfbt",
+    "name": "Regulatory Framework for Business Transactions",
+    "short": "RFBT",
+    "color": "#a996dd",
+    "pale": "#f1edff",
+    "flower": "aster",
+    "source": "PRC BOA Table of Specifications, effective October 2022",
+    "sourceUrl": "https://www.prc.gov.ph/sites/default/files/2022-30%20BOA%20TOS%20Final.pdf",
+    "topics": [
+      {
+        "id": "rfbt-001",
+        "code": "1.1",
+        "title": "Describe obligations",
+        "section": "Law on Business Transactions",
+        "page": 23,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-002",
+        "code": "1.1.1",
+        "title": "Apply the sources of obligations and their concepts",
+        "section": "Law on Business Transactions",
+        "page": 23,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-003",
+        "code": "1.1.2",
+        "title": "Compare and apply the kinds of Obligations",
+        "section": "Law on Business Transactions",
+        "page": 23,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-004",
+        "code": "1.1.3",
+        "title": "Describe the specific circumstances affecting obligations in general",
+        "section": "Law on Business Transactions",
+        "page": 23,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-005",
+        "code": "1.1.4",
+        "title": "Discuss the nature and effects of Obligations",
+        "section": "Law on Business Transactions",
+        "page": 23,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-006",
+        "code": "1.1.5",
+        "title": "Distinguish the extinguishment of obligation with special emphasis",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-007",
+        "code": "1.1.5.3",
+        "title": "Apply the special forms or mode of payment",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-008",
+        "code": "2.1.1",
+        "title": "Describe contracts",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-009",
+        "code": "2.1.2",
+        "title": "Discuss the classification of contracts",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-010",
+        "code": "2.1.3",
+        "title": "Identify the stages of contract",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-011",
+        "code": "2.1.5",
+        "title": "Identify who are persons bound",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-012",
+        "code": "2.2",
+        "title": "Apply the essential requisites of contracts",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-013",
+        "code": "2.3",
+        "title": "Determine the forms of contracts",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-014",
+        "code": "2.4",
+        "title": "Discuss the reformation of instruments/contracts",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-015",
+        "code": "2.5",
+        "title": "Discuss the interpretation of contracts",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-016",
+        "code": "2.6",
+        "title": "Discuss and apply the defective contracts",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-017",
+        "code": "3",
+        "title": "Sales Describe the nature, forms and requisites of sales",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-018",
+        "code": "3.2",
+        "title": "Distinguish earnest money from option money",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-019",
+        "code": "3.3",
+        "title": "Determine the rights/obligations of vendor and vendee",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-020",
+        "code": "3.4",
+        "title": "Describe the warranties of sales",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-021",
+        "code": "3.5",
+        "title": "Discuss and apply installment sales",
+        "section": "Law on Business Transactions",
+        "page": 24,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-022",
+        "code": "3.6",
+        "title": "Discuss the extinguishment of a contract of sale",
+        "section": "Law on Business Transactions",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-023",
+        "code": "3.7",
+        "title": "Apply Legal Redemption on sales",
+        "section": "Law on Business Transactions",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-024",
+        "code": "4.1",
+        "title": "Discuss and apply Pledge, Real Mortgage and Chattel Mortgage on:",
+        "section": "Law on Business Transactions",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-025",
+        "code": "4.2",
+        "title": "Describe the requirements to bind the parties and third persons",
+        "section": "Law on Business Transactions",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-026",
+        "code": "4.3",
+        "title": "Identify the obligations and rights of pledgor and pledgee",
+        "section": "Law on Business Transactions",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-027",
+        "code": "4.4",
+        "title": "Identify the obligations and rights of mortgagor and mortgagee",
+        "section": "Law on Business Transactions",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-028",
+        "code": "4.5",
+        "title": "Apply the modes of extinguishment",
+        "section": "Law on Business Transactions",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-029",
+        "code": "1",
+        "title": "Discuss and apply the requisites to be liable under BP 22",
+        "section": "Bouncing Checks",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-030",
+        "code": "2",
+        "title": "Compare Bouncing checks with Estafa (Art. 315 {2] (d)",
+        "section": "Bouncing Checks",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-031",
+        "code": "1",
+        "title": "Explain the consumer product quality and safety",
+        "section": "Consumer Protection",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-032",
+        "code": "2",
+        "title": "Illustrate the different deceptive sales acts and practices",
+        "section": "Consumer Protection",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-033",
+        "code": "3",
+        "title": "Describe product service and warranty",
+        "section": "Consumer Protection",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-034",
+        "code": "4",
+        "title": "Illustrate labelling and packaging",
+        "section": "Consumer Protection",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-035",
+        "code": "5",
+        "title": "Apply consumer rights",
+        "section": "Consumer Protection",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-036",
+        "code": "1",
+        "title": "Discuss the definition of terms",
+        "section": "Financial Rehabilitation and Insolvency",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-037",
+        "code": "3",
+        "title": "Discuss and apply rehabilitation on:",
+        "section": "Financial Rehabilitation and Insolvency",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-038",
+        "code": "4",
+        "title": "Discuss and apply liquidation on:",
+        "section": "Financial Rehabilitation and Insolvency",
+        "page": 25,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-039",
+        "code": "1",
+        "title": "Discuss the definition and scope of application",
+        "section": "Philippine Competition Act",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-040",
+        "code": "2",
+        "title": "Elaborate and apply prohibited acts",
+        "section": "Philippine Competition Act",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-041",
+        "code": "3",
+        "title": "Illustrate and apply covered transactions",
+        "section": "Philippine Competition Act",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-042",
+        "code": "1",
+        "title": "Explain the general principles",
+        "section": "Government Procurement Law",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-043",
+        "code": "2",
+        "title": "Discuss the scope and application",
+        "section": "Government Procurement Law",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-044",
+        "code": "3",
+        "title": "Discuss the definition of terms",
+        "section": "Government Procurement Law",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-045",
+        "code": "4",
+        "title": "Discuss and apply the procurement procedures",
+        "section": "Government Procurement Law",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-046",
+        "code": "5",
+        "title": "Explain the Disclosure of relations",
+        "section": "Government Procurement Law",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-047",
+        "code": "1.1",
+        "title": "Describe the nature and distinguish it from corporation",
+        "section": "Law on Business Organization",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-048",
+        "code": "1.1.1",
+        "title": "Discuss the kinds of partnerships",
+        "section": "Law on Business Organization",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-049",
+        "code": "1.1.2",
+        "title": "Determine the formalities required",
+        "section": "Law on Business Organization",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-050",
+        "code": "1.1.3",
+        "title": "Discuss the rules of management",
+        "section": "Law on Business Organization",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-051",
+        "code": "1.1.4",
+        "title": "Determine the obligations of partners",
+        "section": "Law on Business Organization",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-052",
+        "code": "1.1.4.3",
+        "title": "Identify the rights of a partner",
+        "section": "Law on Business Organization",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-053",
+        "code": "1.1.4.4",
+        "title": "Illustrate the sharing of profits and losses",
+        "section": "Law on Business Organization",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-054",
+        "code": "1.1.4.5",
+        "title": "Explain the dissolution and winding up",
+        "section": "Law on Business Organization",
+        "page": 26,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-055",
+        "code": "1.1.4.6",
+        "title": "Explain and apply limited partnership",
+        "section": "Law on Business Organization",
+        "page": 27,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-056",
+        "code": "1.1.5.1",
+        "title": "Describe a corporation",
+        "section": "Law on Business Organization",
+        "page": 27,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-057",
+        "code": "1.1.5.2",
+        "title": "Discuss the classes of corporations",
+        "section": "Law on Business Organization",
+        "page": 27,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-058",
+        "code": "1.1.5.3",
+        "title": "Illustrate the nationality of corporations",
+        "section": "Law on Business Organization",
+        "page": 27,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-059",
+        "code": "1.1.5.4",
+        "title": "Apply the doctrines on corporate juridical personality",
+        "section": "Law on Business Organization",
+        "page": 27,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-060",
+        "code": "1.1.5.5",
+        "title": "Describe the capital structure",
+        "section": "Law on Business Organization",
+        "page": 27,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-061",
+        "code": "1.1.5.6",
+        "title": "Discuss the process of incorporation and organization",
+        "section": "Law on Business Organization",
+        "page": 27,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-062",
+        "code": "1.1.5.7",
+        "title": "Explain and discuss the corporate powers of corporations",
+        "section": "Law on Business Organization",
+        "page": 28,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-063",
+        "code": "1.1.5.8",
+        "title": "Discuss and explain the rights of stockholders and members",
+        "section": "Law on Business Organization",
+        "page": 28,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-064",
+        "code": "1.1.6.2",
+        "title": "Discuss and explain the role of the Board of directors and trustees",
+        "section": "Law on Business Organization",
+        "page": 29,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-065",
+        "code": "1.1.6.3",
+        "title": "Describe the capital affairs of corporations",
+        "section": "Law on Business Organization",
+        "page": 29,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-066",
+        "code": "1.1.6.3.6",
+        "title": "Elaborate and identify corporate books and records",
+        "section": "Law on Business Organization",
+        "page": 29,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-067",
+        "code": "1.1.6.4",
+        "title": "Apply the modes and methods of dissolution and liquidation",
+        "section": "Law on Business Organization",
+        "page": 29,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-068",
+        "code": "1.1.6.5",
+        "title": "Distinguish how other corporations operate",
+        "section": "Law on Business Organization",
+        "page": 30,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-069",
+        "code": "1.1.6.5.4",
+        "title": "Illustrate and apply how one person corporations is organized/operate",
+        "section": "Law on Business Organization",
+        "page": 30,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-070",
+        "code": "1.1.6.5.5",
+        "title": "Describe and apply how foreign corporations are organized/operate",
+        "section": "Law on Business Organization",
+        "page": 30,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-071",
+        "code": "1.1.6.6.1",
+        "title": "Discuss the definition and concept",
+        "section": "Law on Business Organization",
+        "page": 30,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-072",
+        "code": "1.1.6.6.2",
+        "title": "Distinguish: constituent and consolidated corporation",
+        "section": "Law on Business Organization",
+        "page": 30,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-073",
+        "code": "1.1.6.6.3",
+        "title": "Illustrate the plan of merger or consolidation",
+        "section": "Law on Business Organization",
+        "page": 30,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-074",
+        "code": "1.1.6.6.4",
+        "title": "Illustrate the articles of merger or consolidation",
+        "section": "Law on Business Organization",
+        "page": 30,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-075",
+        "code": "1.1.6.6.5",
+        "title": "Discuss the procedure, effectivity, limitations and effects",
+        "section": "Law on Business Organization",
+        "page": 30,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-076",
+        "code": "1.1.6.7.1",
+        "title": "Explain the authority of Commissioner",
+        "section": "Law on Business Organization",
+        "page": 30,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-077",
+        "code": "1.1.6.7.2",
+        "title": "Determine the sanctions for violations",
+        "section": "Law on Business Organization",
+        "page": 30,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-078",
+        "code": "1.1.6.7.3",
+        "title": "Identify who are liable",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-079",
+        "code": "1.1.6.7.4",
+        "title": "Explain the authority of the Securities and Exchange Commission",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-080",
+        "code": "1.1.6.8",
+        "title": "Discuss and apply the principles and concepts of Corporate Governance for:",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-081",
+        "code": "1.1.6.9",
+        "title": "Discuss and Elaborate Securities on aspect of:",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-082",
+        "code": "1.1.6.10",
+        "title": "Apply the provisions of the Securities Regulation Code (SRC) Rule 68 on:",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-083",
+        "code": "1.1.6.11",
+        "title": "Apply SEC Issuances",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-084",
+        "code": "1.1.7.1",
+        "title": "Explain the concept of insurance",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-085",
+        "code": "1.1.7.2",
+        "title": "Explain the elements of an insurance contract",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-086",
+        "code": "1.1.7.3",
+        "title": "Discuss the characteristics and nature of insurance contracts",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-087",
+        "code": "1.1.7.4",
+        "title": "Discuss the classes of insurance",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-088",
+        "code": "1.1.7.5",
+        "title": "Describe variable contracts",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-089",
+        "code": "1.1.7.6",
+        "title": "Define and apply insurable interest",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-090",
+        "code": "1.1.7.7",
+        "title": "Illustrate the perfection of the contract of insurance",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-091",
+        "code": "1.1.7.8",
+        "title": "Apply rescission of insurance contracts",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-092",
+        "code": "1.1.7.9",
+        "title": "Discuss claims settlement and subrogation",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-093",
+        "code": "1.1.8.1",
+        "title": "Describe the organization and registration of cooperatives",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-094",
+        "code": "1.1.8.2",
+        "title": "Describe the administration of cooperatives",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-095",
+        "code": "1.1.8.3",
+        "title": "Determine the responsibilities, rights, assurance and privileges of cooperatives",
+        "section": "Law on Business Organization",
+        "page": 31,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-096",
+        "code": "1.1.8.4",
+        "title": "Describe and identify the memberships",
+        "section": "Law on Business Organization",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-097",
+        "code": "1.1.8.5",
+        "title": "Determine the capital, property of funds",
+        "section": "Law on Business Organization",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-098",
+        "code": "1.1.8.6",
+        "title": "Apply the audit, inquiry and members’ tight to examine",
+        "section": "Law on Business Organization",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-099",
+        "code": "1.1.8.7",
+        "title": "Apply and compute the allocation and distribution of funds",
+        "section": "Law on Business Organization",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-100",
+        "code": "1.1.8.8",
+        "title": "Distinguish the types and categories of cooperatives",
+        "section": "Law on Business Organization",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-101",
+        "code": "1.1.8.9",
+        "title": "Explain the merger and consolidation of cooperatives",
+        "section": "Law on Business Organization",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-102",
+        "code": "1.1.8.10",
+        "title": "Explain the dissolution of cooperatives",
+        "section": "Law on Business Organization",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-103",
+        "code": "1.1",
+        "title": "Describe the insurable deposits",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-104",
+        "code": "1.2",
+        "title": "Compute the maximum liability",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-105",
+        "code": "1.3",
+        "title": "Identify the requirements for claims",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-106",
+        "code": "2.1",
+        "title": "Explain the purpose",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-107",
+        "code": "2.2",
+        "title": "Illustrate the Prohibited acts",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-108",
+        "code": "2.3",
+        "title": "Discuss the types of deposits covered",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-109",
+        "code": "2.4",
+        "title": "Apply the exceptions",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-110",
+        "code": "2.5",
+        "title": "Explain garnishment of deposits including foreign deposits",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-111",
+        "code": "3.1",
+        "title": "Describe the purpose",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-112",
+        "code": "3.2",
+        "title": "Illustrate the obligation of creditors to persons to whom credit is extended",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-113",
+        "code": "3.3",
+        "title": "Compare covered and excluded transactions",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-114",
+        "code": "3.4",
+        "title": "Describe the consequences of non-compliance with obligation",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-115",
+        "code": "4.1",
+        "title": "Discuss the purpose, policies and principles",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-116",
+        "code": "4.2",
+        "title": "Discuss the definition of terms",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-117",
+        "code": "4.3",
+        "title": "Illustrate unlawful activities",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-118",
+        "code": "4.4",
+        "title": "Determine who are covered persons",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-119",
+        "code": "4.5",
+        "title": "Describe money laundering, terrorism and financing and asset forfeiture",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-120",
+        "code": "4.6",
+        "title": "Apply and illustrate preventive measures and obligations of covered persons",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-121",
+        "code": "4.7",
+        "title": "Explain and apply beneficial ownership",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-122",
+        "code": "4.8",
+        "title": "Identify the record keeping requirements",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-123",
+        "code": "4.8.1",
+        "title": "Discuss safe harbor",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-124",
+        "code": "5.1",
+        "title": "Discuss Patents",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-125",
+        "code": "5.2",
+        "title": "Discuss Trademark, Service Marks and Trade Names",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-126",
+        "code": "5.3",
+        "title": "Discuss Copyright",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-127",
+        "code": "6.1",
+        "title": "Discuss definitions",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-128",
+        "code": "6.2",
+        "title": "Discuss the scope of application",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-129",
+        "code": "6.3",
+        "title": "Describe the data privacy principles",
+        "section": "Law on Other Business Transactions",
+        "page": 32,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-130",
+        "code": "6.4",
+        "title": "Illustrate processing of personal data",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-131",
+        "code": "6.5",
+        "title": "Identify the security measures for protection of personal data",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-132",
+        "code": "6.6",
+        "title": "Determine the rights of data subject",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-133",
+        "code": "6.7",
+        "title": "Apply data breach notification",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-134",
+        "code": "6.9",
+        "title": "Determine registration and compliance requirements",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-135",
+        "code": "7.1",
+        "title": "Discuss the principles",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-136",
+        "code": "7.2",
+        "title": "Describe the application",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-137",
+        "code": "7.3",
+        "title": "Discuss the definition of terms",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-138",
+        "code": "7.4",
+        "title": "Apply the legal recognition and communication of electronic data messages and electronic documents",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-139",
+        "code": "7.5",
+        "title": "Discuss the electronic commerce in carriage of goods",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-140",
+        "code": "7.6",
+        "title": "Explain the electronic transactions in government",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-141",
+        "code": "8.1",
+        "title": "Explain the policy, construction and interpretation",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-142",
+        "code": "8.2",
+        "title": "Discuss the definition of terms",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-143",
+        "code": "8.3",
+        "title": "Discuss the coverage and scope",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-144",
+        "code": "8.4",
+        "title": "Explain reengineering of systems and procedures",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-145",
+        "code": "8.6",
+        "title": "Illustrate accessing government services",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-146",
+        "code": "8.7",
+        "title": "Describe the streamlined procedures for the issuances of permits and licenses",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-147",
+        "code": "8.8",
+        "title": "Identify the violations, jurisdiction, penalties, and immunity",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-148",
+        "code": "9.1",
+        "title": "Explain and apply labor standards on the aspect of:",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-149",
+        "code": "10.1",
+        "title": "Discuss the definition of terms",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-150",
+        "code": "10.2",
+        "title": "Explain the scope and coverage",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-151",
+        "code": "10.3",
+        "title": "Illustrate pension, retirement and other benefits",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-152",
+        "code": "10.4",
+        "title": "Discuss the exemptions from tax, legal process and lien",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-153",
+        "code": "10.5",
+        "title": "Compute employee’s and employer’s contributions",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-154",
+        "code": "10.6",
+        "title": "Compute contributions from self-employed member",
+        "section": "Law on Other Business Transactions",
+        "page": 33,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-155",
+        "code": "10.7",
+        "title": "Determine the remittance of contributions",
+        "section": "Law on Other Business Transactions",
+        "page": 34,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "rfbt-156",
+        "code": "10.10",
+        "title": "Describe the penal clauses",
+        "section": "Law on Other Business Transactions",
+        "page": 34,
+        "status": "needs_editorial_review"
+      }
+    ]
+  },
+  {
+    "id": "tax",
+    "name": "Taxation",
+    "short": "TAX",
+    "color": "#f59471",
+    "pale": "#fff0e8",
+    "flower": "daisy",
+    "source": "PRC BOA Table of Specifications, effective October 2022",
+    "sourceUrl": "https://www.prc.gov.ph/sites/default/files/2022-30%20BOA%20TOS%20Final.pdf",
+    "topics": [
+      {
+        "id": "tax-001",
+        "code": "1",
+        "title": "Describe the nature, scope, classification, and essential characteristics",
+        "section": "PRINCIPLES OF TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-002",
+        "code": "2",
+        "title": "Identify the principles of sound tax system",
+        "section": "PRINCIPLES OF TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-003",
+        "code": "3",
+        "title": "Discuss the limitations on the power of taxation",
+        "section": "PRINCIPLES OF TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-004",
+        "code": "4",
+        "title": "Differentiate tax evasion vs. tax avoidance",
+        "section": "PRINCIPLES OF TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-005",
+        "code": "5",
+        "title": "Determine the situs/place of taxation",
+        "section": "PRINCIPLES OF TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-006",
+        "code": "6",
+        "title": "Explain double taxation",
+        "section": "PRINCIPLES OF TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-007",
+        "code": "7",
+        "title": "Discuss the legislation of tax laws",
+        "section": "PRINCIPLES OF TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-008",
+        "code": "8",
+        "title": "Apply the impact of taxes in nation building",
+        "section": "PRINCIPLES OF TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-009",
+        "code": "9",
+        "title": "Evaluate ethical tax compliance and administration",
+        "section": "PRINCIPLES OF TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-010",
+        "code": "10",
+        "title": "Describe the organization and functions of the Bureau of Internal Revenue, Local Government Tax Collecting Units, Board of Investments, Philippine Economic Zone Authority and the Bases Conversion and Development Authority",
+        "section": "PRINCIPLES OF TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-011",
+        "code": "1",
+        "title": "Evaluate the remedies of the government",
+        "section": "TAX REMEDIES",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-012",
+        "code": "2",
+        "title": "Apply the remedies of the taxpayer",
+        "section": "TAX REMEDIES",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-013",
+        "code": "1",
+        "title": "Identify the taxpayer and tax base",
+        "section": "INCOME TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-014",
+        "code": "2",
+        "title": "Compute gross income",
+        "section": "INCOME TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-015",
+        "code": "3",
+        "title": "Analyze the deductions from gross income",
+        "section": "INCOME TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-016",
+        "code": "4",
+        "title": "Determine accounting periods",
+        "section": "INCOME TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-017",
+        "code": "5",
+        "title": "Apply the accounting methods",
+        "section": "INCOME TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-018",
+        "code": "6",
+        "title": "Analyze and compute tax due and determine tax credits, if applicable",
+        "section": "INCOME TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-019",
+        "code": "7",
+        "title": "Apply tax return preparation and filing and tax payment requirements",
+        "section": "INCOME TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-020",
+        "code": "8",
+        "title": "Analyze withholding taxes (at source, expanded or creditable withholding tax, final withholding taxes and withholding tax on government payments)",
+        "section": "INCOME TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-021",
+        "code": "9",
+        "title": "Determine compliance requirements",
+        "section": "INCOME TAXATION",
+        "page": 35,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-022",
+        "code": "10",
+        "title": "Describe, analyze and apply specific provisions of other special laws relating to income taxation",
+        "section": "INCOME TAXATION",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-023",
+        "code": "10.1",
+        "title": "Describe, analyze and apply specific provisions of other special laws relating to income taxation",
+        "section": "INCOME TAXATION",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-024",
+        "code": "11",
+        "title": "Differentiate and reconcile differences between tax rules and accounting rules (e.g., PFRS or other frameworks)",
+        "section": "INCOME TAXATION",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-025",
+        "code": "11.1",
+        "title": "Identify and understand the differences between tax rules and accounting rules",
+        "section": "INCOME TAXATION",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-026",
+        "code": "12",
+        "title": "Analyze and determine tax implications of transactions by applying the tax rules and regulations, and formulate sound tax planning strategies within legal and ethical bounds to efficiently manage tax liabilities",
+        "section": "INCOME TAXATION",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-027",
+        "code": "1",
+        "title": "Describe, analyze and compute estate tax",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-028",
+        "code": "1.1",
+        "title": "Describe the principles, concepts involving estate taxation",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-029",
+        "code": "1.2",
+        "title": "Identify the classification of decedents",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-030",
+        "code": "1.3",
+        "title": "Identify and analyze the items to be included and/or excluded in determining gross estate",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-031",
+        "code": "1.4",
+        "title": "Identify and analyze the allowable deductions from gross estate",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-032",
+        "code": "1.5",
+        "title": "Analyze and compute tax due and determine tax credits, if applicable",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-033",
+        "code": "1.6",
+        "title": "Apply tax return preparation and filing and tax payment requirements",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-034",
+        "code": "1.7",
+        "title": "Determine compliance requirements",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-035",
+        "code": "1.8",
+        "title": "Analyze and determine tax implications of transactions by applying the tax rules and regulations, and formulate sound tax planning strategies within legal and ethical bounds to efficiently manage tax liabilities",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-036",
+        "code": "2",
+        "title": "Describe, analyze and compute donor’s tax",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-037",
+        "code": "2.1",
+        "title": "Describe the principles, concepts involving donor’s taxation",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-038",
+        "code": "2.2",
+        "title": "Identify and analyze transfers which may be considered a donation",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-039",
+        "code": "2.3",
+        "title": "Identify the classification of donors",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-040",
+        "code": "2.4",
+        "title": "Determine, analyze and compute net gifts/donations",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-041",
+        "code": "2.5",
+        "title": "Analyze and compute tax due and determine tax credits, if applicable",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-042",
+        "code": "2.6",
+        "title": "Apply tax return preparation and filing and tax payment requirements",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-043",
+        "code": "2.7",
+        "title": "Determine compliance requirements",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-044",
+        "code": "2.8",
+        "title": "Analyze and determine tax implications of transactions by applying the tax rules and regulations, and formulate sound tax planning strategies within legal and ethical bounds to efficiently manage tax liabilities",
+        "section": "TRANSFER TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-045",
+        "code": "1",
+        "title": "Describe, analyze and compute value-added tax",
+        "section": "BUSINESS TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-046",
+        "code": "1.1",
+        "title": "Describe the nature and characteristics of value-added tax",
+        "section": "BUSINESS TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-047",
+        "code": "1.2",
+        "title": "Analyze and determine persons subject to value-added tax",
+        "section": "BUSINESS TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-048",
+        "code": "1.3",
+        "title": "Analyze and determine transactions subject to 12%, 0% and withholding VAT and/or exempt from value-added tax",
+        "section": "BUSINESS TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-049",
+        "code": "1.4",
+        "title": "Identify and analyze sources of input tax",
+        "section": "BUSINESS TAXES",
+        "page": 36,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-050",
+        "code": "1.5",
+        "title": "Analyze and compute value-added tax payable or excess input tax credits and determine tax credits, if applicable",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-051",
+        "code": "1.6",
+        "title": "Describe and apply the process for claiming input VAT refund",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-052",
+        "code": "1.7",
+        "title": "Apply tax return preparation and filing and tax payment requirements",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-053",
+        "code": "1.8",
+        "title": "Determine compliance requirements",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-054",
+        "code": "1.9",
+        "title": "Analyze and determine tax implications of transactions by applying the tax rules and regulations, and formulate sound tax planning strategies within legal and ethical bounds to efficiently manage tax liabilities",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-055",
+        "code": "2",
+        "title": "Describe, analyze and compute percentage tax",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-056",
+        "code": "2.1",
+        "title": "Describe the nature and characteristics of percentage tax",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-057",
+        "code": "2.2",
+        "title": "Analyze and determine persons subject to percentage tax",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-058",
+        "code": "2.3",
+        "title": "Analyze and determine transactions subject to and/or exempt from percentage tax",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-059",
+        "code": "2.4",
+        "title": "Analyze and compute percentage tax due, and determine tax credits, if applicable",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-060",
+        "code": "2.5",
+        "title": "Apply tax return preparation and filing and tax payment requirements",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-061",
+        "code": "2.6",
+        "title": "Determine compliance requirements",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-062",
+        "code": "2.7",
+        "title": "Analyze and determine tax implications of transactions by applying the tax rules and regulations, and formulate sound tax planning strategies within legal and ethical bounds to efficiently manage tax liabilities",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-063",
+        "code": "3",
+        "title": "Describe, analyze and apply specific provisions of other special laws relating to business taxation",
+        "section": "BUSINESS TAXES",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-064",
+        "code": "1",
+        "title": "Describe the nature and characteristics of excise tax",
+        "section": "EXCISE TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-065",
+        "code": "2",
+        "title": "Identify and analyze transactions subject to and/or exempt from excise tax",
+        "section": "EXCISE TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-066",
+        "code": "3",
+        "title": "Determine and compute for the tax base and tax due",
+        "section": "EXCISE TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-067",
+        "code": "4",
+        "title": "Apply tax return preparation and filing and tax payment requirements",
+        "section": "EXCISE TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-068",
+        "code": "5",
+        "title": "Determine compliance requirements",
+        "section": "EXCISE TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-069",
+        "code": "6",
+        "title": "Analyze and determine tax implications of transactions by applying the tax rules and regulations, and formulate sound tax planning strategies within legal and ethical bounds to efficiently manage tax liabilities",
+        "section": "EXCISE TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-070",
+        "code": "1",
+        "title": "Describe the nature and characteristics of documentary stamp tax",
+        "section": "DOCUMENTARY STAMP TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-071",
+        "code": "2",
+        "title": "Identify and analyze transactions subject to and/or exempt from documentary stamp tax",
+        "section": "DOCUMENTARY STAMP TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-072",
+        "code": "3",
+        "title": "Determine and compute for the tax base and tax due",
+        "section": "DOCUMENTARY STAMP TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-073",
+        "code": "4",
+        "title": "Apply tax return preparation and filing and tax payment requirements",
+        "section": "DOCUMENTARY STAMP TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-074",
+        "code": "5",
+        "title": "Determine compliance requirements",
+        "section": "DOCUMENTARY STAMP TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-075",
+        "code": "6",
+        "title": "Analyze and determine tax implications of transactions by applying the tax rules and regulations, and formulate sound tax planning strategies within legal and ethical bounds to efficiently manage tax liabilities H. TAXATION UNDER THE LOCAL GOVERNMENT CODE (Local Government Taxation and Real Property Taxation under the Local Government Code)",
+        "section": "DOCUMENTARY STAMP TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-076",
+        "code": "1",
+        "title": "Describe the fundamental principles, scope of taxing power of local government units (LGUs)",
+        "section": "DOCUMENTARY STAMP TAX",
+        "page": 37,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-077",
+        "code": "2",
+        "title": "Describe and apply the scope and different types of local taxes (limited to real property tax, local tax imposed by provinces, municipalities and cities, and barangays)",
+        "section": "DOCUMENTARY STAMP TAX",
+        "page": 38,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-078",
+        "code": "3",
+        "title": "Identify the tax base and tax rates",
+        "section": "DOCUMENTARY STAMP TAX",
+        "page": 38,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-079",
+        "code": "4",
+        "title": "Determine the venue and time of payment",
+        "section": "DOCUMENTARY STAMP TAX",
+        "page": 38,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-080",
+        "code": "5",
+        "title": "Evaluate and apply the remedies available to the government and the taxpayer",
+        "section": "DOCUMENTARY STAMP TAX",
+        "page": 38,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-081",
+        "code": "6",
+        "title": "Analyze and determine tax implications of transactions by applying the tax rules and regulations, and formulate sound tax planning strategies within legal and ethical bounds to efficiently manage tax liabilities",
+        "section": "DOCUMENTARY STAMP TAX",
+        "page": 38,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-082",
+        "code": "1",
+        "title": "Describe, analyze and apply Special Economic Zone Act for purposes of determining tax liabilities and tax incentives",
+        "section": "PREFERENTIAL TAXATION",
+        "page": 38,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-083",
+        "code": "2",
+        "title": "Describe, analyze and apply Bases Conversion and Development Act (BCDA) for purposes of determining tax liabilities and tax incentives",
+        "section": "PREFERENTIAL TAXATION",
+        "page": 38,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-084",
+        "code": "3",
+        "title": "Describe, analyze and apply the Omnibus Investments Code for purposes of determining tax liabilities and tax incentives",
+        "section": "PREFERENTIAL TAXATION",
+        "page": 38,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-085",
+        "code": "4",
+        "title": "Describe, analyze and apply the basic principles of tax treaty and specific provisions of Double Taxation Agreement (DTA) models (e.g. OECD Model Tax Convention, UN Model Double Taxation Convention and United States Model Income Tax Convention) in determining the tax implications of various income items of non-residents, such as:",
+        "section": "PREFERENTIAL TAXATION",
+        "page": 38,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "tax-086",
+        "code": "5",
+        "title": "Analyze and determine tax implications of transactions by applying the tax rules and regulations, and formulate sound tax planning strategies within legal and ethical bounds to efficiently manage tax liabilities",
+        "section": "PREFERENTIAL TAXATION",
+        "page": 38,
+        "status": "needs_editorial_review"
+      }
+    ]
+  }
+]

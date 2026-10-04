@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CPALE Study Tracker
 
-## Getting Started
+A free, mobile friendly CPALE study planner and practice space. This is an **unreleased preview** until the syllabus, guides, starter questions, sign-in, security, and release gates in [CPALE_STUDY_TRACKER_SDLC_PLAN.md](./CPALE_STUDY_TRACKER_SDLC_PLAN.md) pass owner review.
 
-First, run the development server:
+## Local setup
 
-```bash
+Use Node.js 22 and npm. Copy `.env.example` to `.env.local` and set the Supabase project URL and **publishable** key. Keep `NEXT_PUBLIC_GOOGLE_AUTH_ENABLED=false` until Google OAuth is configured and tested. Keep email auth disabled until SMTP signup and reset mail work. Never put a secret or service-role key in this repository.
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Without sign-in, edits live only in that browser's local storage. The existing Supabase project is in the owner account. Apply migrations in `supabase/migrations` in filename order to a different Supabase project for development or restore testing; do not rerun them blindly against production.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm run lint
+npm test
+npm run build
+npm audit --omit=dev --audit-level=high
+```
 
-## Learn More
+The PDF extraction script `scripts/extract-tos.py` reads the supplied TOS and writes `src/data/syllabus.json`. Its output is a review queue, not reviewed teaching content. The app only displays approved guides and shared questions.
 
-To learn more about Next.js, take a look at the following resources:
+## Release
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Use a branch and pull request, review the Vercel preview, check the GitHub workflow, then request owner approval to merge or open the public beta. The Google Cloud setup and full acceptance checklist are in the SDLC plan. Private uploads use the `/api/materials/upload` route and Supabase Storage. Privacy and account deletion pages are included.

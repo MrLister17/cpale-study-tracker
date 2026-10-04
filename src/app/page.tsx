@@ -1,69 +1,196 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+import { useEffect, useMemo, useState, type CSSProperties } from 'react';
+import { ArrowRight, BookOpen, CalendarDays, Check, CheckCircle2, ChevronLeft, ChevronRight, Clock3, CloudUpload, FileQuestion, Home, Link2, ListChecks, Menu, Plus, Search, Settings2, ShieldCheck, Sparkles, Trash2, Upload, UserRound, X } from 'lucide-react';
+import { Flower } from '@/components/Flower';
+import { OwnerReview } from '@/components/OwnerReview';
+import { parseCsv } from '@/lib/csv';
+import { demoQuestions } from '@/data/demoQuestions';
+import { buildPlan, daysBetween, phDate } from '@/lib/planner';
+import { getSupabase, emailAuthEnabled, googleAuthEnabled } from '@/lib/supabase';
+import { allTopics, findSubjectForTopic, sourceNotice, subjects, topicById } from '@/lib/syllabus';
+import { EMPTY_STATE, type Question, type StudyState, type StudyTask, type SubjectId, type WeeklySlot } from '@/lib/types';
+
+type View = 'dashboard' | 'planner' | 'subjects' | 'bank' | 'quiz' | 'materials' | 'owner';
+type Quiz = { questions: Question[]; answers: Record<string, number>; start: number; done: boolean };
+const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const nav: { id: View; label: string; Icon: typeof Home }[] = [
+  { id: 'dashboard', label: 'Dashboard', Icon: Home }, { id: 'planner', label: 'My plan', Icon: CalendarDays },
+  { id: 'subjects', label: 'Subjects', Icon: BookOpen }, { id: 'bank', label: 'Question bank', Icon: FileQuestion },
+  { id: 'quiz', label: 'Practice quiz', Icon: ListChecks }, { id: 'materials', label: 'Materials', Icon: Link2 },
+];
+const pretty = (date: string, options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric' }) => new Intl.DateTimeFormat('en-PH', { timeZone: 'Asia/Manila', ...options }).format(new Date(`${date}T12:00:00+08:00`));
+const newQuestion = (subjectId: SubjectId, topicId: string): Question => ({ id: crypto.randomUUID(), subjectId, topicId, origin: 'personal', stem: '', options: ['', '', '', ''], answer: 0, explanation: '' });
+
+function Calendar({ today, tasks, choose }: { today: string; tasks: StudyTask[]; choose: (date: string) => void }) {
+  const [offset, setOffset] = useState(0);
+  const now = new Date(`${today}T00:00:00Z`);
+  const first = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + offset, 1));
+  const year = first.getUTCFullYear(), month = first.getUTCMonth(), count = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+  const planned = new Set(tasks.map((task) => task.date));
+  return <div className="calendar card"><div className="calendar-title"><div><span className="eyebrow">YOUR CALENDAR</span><h3>{new Intl.DateTimeFormat('en-PH', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(first)}</h3></div><div><button aria-label="Previous month" onClick={() => setOffset(offset - 1)}><ChevronLeft size={17} /></button><button aria-label="Next month" onClick={() => setOffset(offset + 1)}><ChevronRight size={17} /></button></div></div><div className="calendar-grid">{['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => <b key={i}>{day}</b>)}{Array.from({ length: first.getUTCDay() }, (_, i) => <span key={`gap-${i}`} />)}{Array.from({ length: count }, (_, i) => { const date = `${year}-${String(month + 1).padStart(2, '0')}-${String(i + 1).padStart(2, '0')}`; return <button key={date} aria-label={`Open ${pretty(date)}`} className={`${date === today ? 'today' : ''} ${planned.has(date) ? 'planned' : ''}`} onClick={() => choose(date)}>{i + 1}</button>; })}</div><div className="calendar-key"><span><i className="pink-dot" /> Today</span><span><i className="green-dot" /> Study day</span></div></div>;
+}
+
+export default function HomePage() {
+  const [view, setView] = useState<View>('dashboard');
+  const [state, setState] = useState<StudyState>(EMPTY_STATE);
+  const [today, setToday] = useState('');
+  const [ready, setReady] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
+  const [owner, setOwner] = useState(false);
+  const [admitted, setAdmitted] = useState(true);
+  const [remoteLoaded, setRemoteLoaded] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false);
+  const [authEmail, setAuthEmail] = useState('');
+  const [authPassword, setAuthPassword] = useState('');
+  const [authMode, setAuthMode] = useState<'signin' | 'signup'>('signin');
+  const [authMessage, setAuthMessage] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [subjectId, setSubjectId] = useState<SubjectId>('far');
+  const [search, setSearch] = useState('');
+  const [openTopic, setOpenTopic] = useState<string | null>(null);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [question, setQuestion] = useState<Question>(() => newQuestion('far', 'far-001'));
+  const [editing, setEditing] = useState<string | null>(null);
+  const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
+  const [quizCount, setQuizCount] = useState(10);
+  const [quiz, setQuiz] = useState<Quiz | null>(null);
+  const [timer, setTimer] = useState(0);
+  const [timed, setTimed] = useState(false);
+  const [starter, setStarter] = useState<Question[]>([]);
+  const [guides, setGuides] = useState<Record<string, { summary: string; lecture_prompt: string; practice_prompt: string }>>({});
+  const [approvedTopics, setApprovedTopics] = useState<Set<string>>(new Set());
+  const [materialTopic, setMaterialTopic] = useState('far-001');
+  const [materialTitle, setMaterialTitle] = useState('');
+  const [materialUrl, setMaterialUrl] = useState('');
+  const [materialNotes, setMaterialNotes] = useState('');
+  const [notice, setNotice] = useState('');
+  const supabase = useMemo(() => getSupabase(), []);
+  const subject = subjects.find((s) => s.id === subjectId)!;
+  const tell = (message: string) => { setNotice(message); window.setTimeout(() => setNotice(''), 4000); };
+  const go = (next: View) => { setView(next); setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
+  useEffect(() => { const frame = requestAnimationFrame(() => { setToday(phDate()); try { const saved = localStorage.getItem('cpale-guest-v1'); if (saved) setState({ ...EMPTY_STATE, ...JSON.parse(saved) }); } catch {} setReady(true); }); return () => cancelAnimationFrame(frame); }, []);
+  useEffect(() => { if (!supabase) return; void supabase.from('syllabus_topics').select('id,status').eq('status', 'approved').then(({ data }) => setApprovedTopics(new Set((data ?? []).map((item) => item.id)))); }, [supabase]);
+  useEffect(() => {
+    if (!supabase) return;
+    let alive = true;
+    const load = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!alive || !user) return;
+      setUserId(user.id);
+      const [workspace, profile, questions, guideRows] = await Promise.all([
+        supabase.from('user_workspaces').select('data').eq('user_id', user.id).maybeSingle(),
+        supabase.from('app_profiles').select('is_owner,admitted').eq('user_id', user.id).maybeSingle(),
+        supabase.from('starter_questions').select('*').eq('status', 'published').limit(2500),
+        supabase.from('topic_guides').select('topic_id,summary,lecture_prompt,practice_prompt').eq('status', 'published').limit(1000),
+      ]);
+      if (!alive) return;
+      setState(workspace.data?.data ? { ...EMPTY_STATE, ...workspace.data.data } : EMPTY_STATE);
+      setOwner(Boolean(profile.data?.is_owner));
+      setAdmitted(Boolean(profile.data?.admitted));
+      setRemoteLoaded(true);
+      setStarter((questions.data ?? []).map((q) => ({ id: q.id, topicId: q.topic_id, subjectId: findSubjectForTopic(q.topic_id).id, stem: q.stem, options: q.options, answer: q.answer_index, explanation: q.explanation, source: q.source_url, reviewedAt: q.reviewed_at, origin: 'starter' })));
+      setGuides(Object.fromEntries((guideRows.data ?? []).map((row) => [row.topic_id, row])));
+    };
+    void load();
+    const { data } = supabase.auth.onAuthStateChange((event, session) => { if (session) void load(); else if (event !== 'INITIAL_SESSION') { setUserId(null); setOwner(false); setAdmitted(true); setRemoteLoaded(false); try { const guest = localStorage.getItem('cpale-guest-v1'); setState(guest ? { ...EMPTY_STATE, ...JSON.parse(guest) } : EMPTY_STATE); } catch { setState(EMPTY_STATE); } } });
+    return () => { alive = false; data.subscription.unsubscribe(); };
+  }, [supabase]);
+  useEffect(() => { if (!ready) return; if (!userId) { localStorage.setItem('cpale-guest-v1', JSON.stringify(state)); return; } if (!supabase || !remoteLoaded || !admitted) return; const t = window.setTimeout(() => { void supabase.from('user_workspaces').upsert({ user_id: userId, data: state, updated_at: new Date().toISOString() }); }, 800); return () => clearTimeout(t); }, [state, ready, supabase, userId, remoteLoaded, admitted]);
+  useEffect(() => { if (!quiz || quiz.done) return; const t = window.setInterval(() => setTimer(Math.floor((Date.now() - quiz.start) / 1000)), 1000); return () => clearInterval(t); }, [quiz]);
+
+  const plan = useMemo(() => today ? buildPlan(state, today) : null, [state, today]);
+  const daysLeft = today && state.targetDate ? Math.max(0, daysBetween(today, state.targetDate)) : null;
+  const upcoming = plan?.tasks.filter((task) => task.date >= today) ?? [];
+  const currentTasks = selectedDate ? plan?.tasks.filter((task) => task.date === selectedDate) ?? [] : upcoming.slice(0, 40);
+  const completedTopics = allTopics.filter((topic) => ['study', 'lecture', 'quiz'].every((kind) => Boolean(state.completed[`${kind}:${topic.id}`]))).length;
+  const pool = [...(supabase ? starter : demoQuestions), ...state.personalQuestions];
+  const visibleTopics = subject.topics.filter((topic) => `${topic.title} ${topic.section} ${topic.code}`.toLowerCase().includes(search.toLowerCase())).slice(0, 100);
+  const storageBytes = state.materials.reduce((sum, item) => sum + (item.bytes ?? 0), 0);
+
+  const mark = (id: string) => setState((s) => ({ ...s, completed: { ...s.completed, [id]: new Date().toISOString() }, needsReview: id.startsWith('weak:') ? Object.fromEntries(Object.entries(s.needsReview ?? {}).filter(([topic]) => topic !== id.slice(5))) : s.needsReview }));
+  const saveQuestion = () => {
+    if (!question.stem.trim() || question.options.some((value) => !value.trim()) || !question.explanation.trim()) return tell('Add a question, four options, and an explanation.');
+    setState((s) => ({ ...s, personalQuestions: editing ? s.personalQuestions.map((q) => q.id === editing ? question : q) : [...s.personalQuestions, question] }));
+    setEditing(null); setQuestion(newQuestion(question.subjectId, question.topicId)); tell('Saved to your private question bank.');
+  };
+  const importCsv = async (file: File) => {
+    const text = await file.text();
+    let lines: string[][];
+    try { lines = parseCsv(text); } catch { return tell('This CSV has an unclosed or invalid quoted field.'); }
+    const header = lines.shift()?.map((v) => v.toLowerCase()) ?? [];
+    const cols = ['topic_id', 'question', 'option_a', 'option_b', 'option_c', 'option_d', 'answer', 'explanation'];
+    if (!cols.every((v) => header.includes(v))) return tell('Use the CSV template columns shown below.');
+    const get = (line: string[], key: string) => line[header.indexOf(key)] ?? '';
+    const questions: Question[] = [];
+    for (const line of lines) {
+      const topicId = get(line, 'topic_id'), answer = 'ABCD'.indexOf(get(line, 'answer').toUpperCase());
+      const options = ['option_a', 'option_b', 'option_c', 'option_d'].map((key) => get(line, key)) as Question['options'];
+      if (!topicById[topicId] || answer < 0 || !get(line, 'question') || !get(line, 'explanation') || options.some((v) => !v)) continue;
+      questions.push({ id: crypto.randomUUID(), topicId, subjectId: findSubjectForTopic(topicId).id, stem: get(line, 'question'), options, answer, explanation: get(line, 'explanation'), source: get(line, 'source'), origin: 'personal' });
+    }
+    setState((s) => ({ ...s, personalQuestions: [...s.personalQuestions, ...questions] })); tell(`Imported ${questions.length} questions.`);
+  };
+  const startQuiz = () => {
+    const ids = selectedTopics.length ? selectedTopics : subject.topics.map((topic) => topic.id);
+    const questions = pool.filter((q) => ids.includes(q.topicId)).sort(() => Math.random() - 0.5).slice(0, quizCount);
+    if (!questions.length) return tell('No questions yet for those topics. Add private questions first.');
+    // Start time is captured when the student clicks, outside rendering.
+    // eslint-disable-next-line react-hooks/purity
+    setQuiz({ questions, answers: {}, start: Date.now(), done: false }); setTimer(0);
+  };
+  const finishQuiz = () => {
+    if (!quiz) return;
+    const score = quiz.questions.filter((q) => quiz.answers[q.id] === q.answer).length;
+    const at = new Date().toISOString();
+    const correct = quiz.questions.filter((q) => quiz.answers[q.id] === q.answer);
+    const missed = quiz.questions.filter((q) => quiz.answers[q.id] !== q.answer);
+    setState((s) => ({ ...s, attempts: [{ id: crypto.randomUUID(), at, questionIds: quiz.questions.map((q) => q.id), responses: quiz.answers, score, durationSeconds: Math.floor((Date.now() - quiz.start) / 1000) }, ...s.attempts], completed: { ...s.completed, ...Object.fromEntries(correct.map((q) => [`quiz:${q.topicId}`, at])) }, needsReview: { ...(s.needsReview ?? {}), ...Object.fromEntries(missed.map((q) => [q.topicId, phDate()])) } }));
+    setQuiz({ ...quiz, done: true });
+  };
+  const addMaterial = () => {
+    if (!materialTitle.trim() || (!materialUrl.trim() && !materialNotes.trim())) return tell('Add a title and either a link or notes.');
+    if (materialUrl && !/^https?:\/\//.test(materialUrl)) return tell('The link must begin with https:// or http://.');
+    setState((s) => ({ ...s, materials: [{ id: crypto.randomUUID(), topicId: materialTopic, title: materialTitle, url: materialUrl, notes: materialNotes }, ...s.materials] }));
+    setMaterialTitle(''); setMaterialUrl(''); setMaterialNotes(''); tell('Material saved.');
+  };
+  const uploadFile = async (file: File) => {
+    if (!supabase || !userId) return tell('Sign in to upload private files.');
+    if (file.size > 10 * 1024 * 1024 || !['application/pdf', 'image/png', 'image/jpeg', 'image/webp'].includes(file.type)) return tell('Use a PDF or image up to 10 MB.');
+    const session = await supabase.auth.getSession();
+    const body = new FormData(); body.append('file', file); body.append('topicId', materialTopic);
+    const response = await fetch('/api/materials/upload', { method: 'POST', headers: { Authorization: `Bearer ${session.data.session?.access_token ?? ''}` }, body });
+    const result = await response.json();
+    if (!response.ok) return tell(result.error ?? 'Upload failed.');
+    setState((s) => ({ ...s, materials: [{ id: result.id, topicId: materialTopic, title: file.name, fileName: file.name, storagePath: result.path, bytes: file.size }, ...s.materials] })); tell('Private file uploaded.');
+  };
+  const openMaterial = async (path: string) => { if (!supabase) return; const { data, error } = await supabase.storage.from('materials').createSignedUrl(path, 60); if (error) tell('Could not open file.'); else window.open(data.signedUrl, '_blank', 'noopener,noreferrer'); };
+  const removeMaterial = async (id: string, path?: string) => {
+    if (path && supabase) {
+      const removed = await supabase.storage.from('materials').remove([path]);
+      if (removed.error) return tell(removed.error.message);
+      const row = await supabase.rpc('delete_material_upload', { p_id: id });
+      if (row.error) return tell(row.error.message);
+    }
+    setState((s) => ({ ...s, materials: s.materials.filter((item) => item.id !== id) }));
+    tell('Material removed.');
+  };
+  const signIn = async (event: React.FormEvent) => { event.preventDefault(); if (!supabase) return; const { error } = authMode === 'signup' ? await supabase.auth.signUp({ email: authEmail, password: authPassword }) : await supabase.auth.signInWithPassword({ email: authEmail, password: authPassword }); setAuthMessage(error?.message ?? (authMode === 'signup' ? 'Check your inbox to confirm your email.' : 'Signed in.')); if (!error && authMode === 'signin') setAuthOpen(false); };
+  const googleSignIn = async () => { if (!supabase) return tell('Account services are not configured yet.'); const { error } = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: location.origin } }); if (error) setAuthMessage(error.message); };
+
+  return <div className="app-shell"><header className="site-header"><div className="header-inner"><button className="logo" onClick={() => go('dashboard')}><span className="logo-flower"><Flower color="#fff" center="#f5c564" size={27} /></span>CPALE <em>Study Tracker</em></button><nav className={`main-nav ${menuOpen ? 'show' : ''}`}>{nav.map(({ id, label, Icon }) => <button key={id} className={view === id ? 'active' : ''} onClick={() => go(id)}><Icon size={17} />{label}</button>)}{owner && <button className={view === 'owner' ? 'active' : ''} onClick={() => go('owner')}><ShieldCheck size={17} />Owner</button>}</nav><div className="header-actions"><span className="beta-pill">● FREE PREVIEW</span><button className="account" onClick={() => userId ? void supabase?.auth.signOut() : setAuthOpen(true)}><UserRound size={17} />{userId ? 'Sign out' : 'Sign in'}</button><button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation"><Menu size={22} /></button></div></div></header><main className="main-content">{userId && !admitted ? <div className="beta-full card"><Flower color="#ffe3ef" center="#f4c36b" size={90} /><h1>The beta is full for now</h1><p>Your account is on the waitlist. There are ten student places in this free preview; the owner account is separate.</p><button className="button outline" onClick={() => void supabase?.auth.signOut()}>Sign out</button></div> : <>
+  {view === 'dashboard' && <><section className="hero"><div className="hero-copy"><span className="hero-kicker"><Sparkles size={16} /> YOUR JOURNEY TO CPA STARTS HERE</span><h1>Little by little,<br /><em>you&apos;ll get there.</em></h1><p>A calmer way to cover every CPALE topic, make the most of your study time, and keep showing up for your goal.</p><div className="hero-actions"><button className="button primary" onClick={() => go('planner')}>Build my study plan <ArrowRight size={18} /></button><button className="button outline" onClick={() => go('subjects')}>Explore subjects</button></div><small>Based on the PRC Board of Accountancy Table of Specifications</small></div><div className="hero-art" aria-hidden="true"><div className="art-ring ring-a" /><div className="art-ring ring-b" /><Flower className="hero-flower main-flower" color="#fff7dc" center="#f8ce74" size={167} /><Flower className="hero-flower flower-a" color="#e8d8fc" center="#e8bd65" size={92} /><Flower className="hero-flower flower-b" color="#ffc7d7" center="#f0b165" size={110} /><Flower className="hero-flower flower-c" color="#fff0a5" center="#e7b760" size={68} /><span className="art-note one">one topic<br />at a time ✦</span><span className="art-note two">you&apos;ve got this!</span></div></section><div className="dashboard-heading"><div><span className="eyebrow">YOUR STUDY SPACE</span><h2>{state.name ? `Welcome back, ${state.name.split(' ')[0]}!` : 'Good to see you here!'}</h2><p>Today is {today && pretty(today, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} in the Philippines.</p></div><button className="text-link" onClick={() => go('planner')}>View full plan <ArrowRight size={16} /></button></div><div className="dashboard-grid"><div className="left-column"><div className="countdown card"><div className="countdown-label"><Clock3 size={16} /> DAYS UNTIL YOUR CPALE</div><strong>{daysLeft ?? "—"}<span>{daysLeft === null ? "set a date" : "days"}</span></strong><div><span>{state.targetDate ? pretty(state.targetDate, { month: 'long', day: 'numeric', year: 'numeric' }) : 'Choose a provisional exam date'}</span><small>{state.targetDateStatus === 'provisional' ? 'Tentative date' : 'PRC confirmed'}</small></div></div><Calendar today={today || '2026-10-04'} tasks={plan?.tasks ?? []} choose={(date) => { setSelectedDate(date); go('planner'); }} /></div><div className="right-column"><div className="highlight card"><div><span className="eyebrow">YOUR BIG PICTURE</span><h3>Six subjects.<br />One steady plan.</h3><p>Built around the hours you actually have, all the way to board exam day.</p><button onClick={() => go('planner')}>Adjust my schedule <ArrowRight size={16} /></button></div><Flower color="#f7bfd4" center="#ffd16c" size={120} /><Flower color="#e8f5d6" center="#e8b95d" size={75} /></div><div className="metric-row"><div className="metric card"><span className="metric-icon pink"><CheckCircle2 size={19} /></span><strong>{completedTopics}</strong><small>Topics practiced</small></div><div className="metric card"><span className="metric-icon green"><BookOpen size={19} /></span><strong>{allTopics.length}</strong><small>Topics mapped</small></div><div className="metric card"><span className="metric-icon purple"><CalendarDays size={19} /></span><strong>{Math.round((plan?.capacityMinutes ?? 0) / 60)}h</strong><small>Time available</small></div></div><div className="queue card"><div className="card-heading"><div><span className="eyebrow">NEXT UP</span><h3>Your study queue</h3></div><button className="text-link" onClick={() => go('planner')}>See all <ArrowRight size={16} /></button></div>{upcoming.slice(0, 3).map((task) => <div className="task-row" key={`${task.id}-${task.date}`}><i style={{ background: subjects.find((s) => s.id === task.subjectId)?.color ?? '#f8c6d4' }} /><div><strong>{task.kind === 'lecture' ? 'Lecture review' : task.kind === 'review' ? 'Active recall' : task.kind === 'quiz' ? 'Practice' : 'Study'} · {task.subjectId?.toUpperCase() ?? 'Mixed'}</strong><small>{task.title}</small></div><time>{pretty(task.date)}</time></div>)}{!upcoming.length && <p className="empty-copy">Add weekly study hours to fill your queue.</p>}</div></div></div><section className="subjects-section"><div className="section-heading"><div><span className="eyebrow">THE SIX SUBJECTS</span><h2>Pick a subject to begin <span>✿</span></h2><p>All six subjects are mapped to the attached PRC syllabus for review.</p></div><button className="text-link" onClick={() => go('subjects')}>Browse all topics <ArrowRight size={16} /></button></div><div className="subject-grid">{subjects.map((s) => <button className="subject-card" key={s.id} style={{ '--subject': s.color } as CSSProperties} onClick={() => { setSubjectId(s.id); go('subjects'); }}><Flower color={s.id === 'rfbt' ? '#dcd4fb' : s.id === 'afar' ? '#fff8e9' : s.id === 'aud' ? '#ffb986' : '#fff2bf'} center="#e9b45d" size={80} /><span><strong>{s.short}</strong><small>{s.name}</small></span><ArrowRight size={18} /></button>)}</div></section><div className="feature-row"><div className="feature green-feature"><ListChecks size={26} /><h3>A plan that fits your life</h3><p>Set weekly study hours and let your roadmap rearrange around days off and missed work.</p><button onClick={() => go('planner')}>Plan my week <ArrowRight size={16} /></button></div><div className="feature pink-feature"><FileQuestion size={26} /><h3>Practice your way</h3><p>Build a private bank, choose the exact topics, and turn them into a fresh quiz.</p><button onClick={() => go('bank')}>Build my bank <ArrowRight size={16} /></button></div></div></>}
+  {view === 'planner' && <><PageHeading kicker="PERSONALIZED FOR YOUR TIME" title="My study plan" description="Your weekly slots become a roadmap to your chosen board date." /><div className="two-column"><section className="card form-card"><h2><Settings2 size={21} /> Plan settings</h2><label>Your name<input value={state.name} onChange={(e) => setState((s) => ({ ...s, name: e.target.value }))} placeholder="What should we call you?" /></label><label>Target exam date<input type="date" min={today} value={state.targetDate} onChange={(e) => setState((s) => ({ ...s, targetDate: e.target.value, targetDateStatus: 'provisional' }))} /></label><p className="field-help">Choose your provisional board date. Check PRC for the official schedule when published.</p><div className="form-row-title"><h3>Weekly study slots</h3><button onClick={() => setState((s) => ({ ...s, slots: [...s.slots, { id: crypto.randomUUID(), weekday: 0, start: '09:00', end: '11:00' }] }))}><Plus size={15} /> Add</button></div>{state.slots.map((slot) => <div className="slot-row" key={slot.id}><select aria-label="Day" value={slot.weekday} onChange={(e) => setState((s) => ({ ...s, slots: s.slots.map((v) => v.id === slot.id ? { ...v, weekday: Number(e.target.value) } : v) }))}>{weekdays.map((day, i) => <option key={day} value={i}>{day}</option>)}</select>{(['start', 'end'] as const).map((field) => <input key={field} aria-label={field} type="time" value={slot[field]} onChange={(e) => setState((s) => ({ ...s, slots: s.slots.map((v) => v.id === slot.id ? { ...v, [field]: e.target.value } as WeeklySlot : v) }))} />)}<button aria-label="Remove slot" onClick={() => setState((s) => ({ ...s, slots: s.slots.filter((v) => v.id !== slot.id) }))}><Trash2 size={16} /></button></div>)}<p className="field-help">15% stays clear for breaks and catch-up.</p><div className="form-row-title"><h3>Unavailable dates</h3></div><div className="inline-form"><input type="date" id="blocked-date" min={today} aria-label="Unavailable date" /><button className="button small" onClick={() => { const el = document.getElementById('blocked-date') as HTMLInputElement; if (el.value && !state.unavailableDates.includes(el.value)) setState((s) => ({ ...s, unavailableDates: [...s.unavailableDates, el.value].sort() })); el.value = ''; }}>Add</button></div><div className="tags">{state.unavailableDates.map((date) => <button key={date} onClick={() => setState((s) => ({ ...s, unavailableDates: s.unavailableDates.filter((v) => v !== date) }))}>{pretty(date)} <X size={12} /></button>)}</div></section><div><div className="coverage card"><span className="eyebrow">COVERAGE FORECAST</span><strong>{plan?.coveragePercent ?? 0}%</strong><span>of mapped topics scheduled</span><div className="progress"><i style={{ width: `${plan?.coveragePercent ?? 0}%` }} /></div><p>{plan?.unscheduled ? `${plan.unscheduled} topics do not fit yet. Add study hours or adjust the provisional date.` : 'All mapped topics fit before your exam date.'}</p></div><div className="card plan-tasks"><div className="card-heading"><div><span className="eyebrow">YOUR ROADMAP</span><h2>{selectedDate ? pretty(selectedDate, { weekday: 'long', month: 'long', day: 'numeric' }) : 'Upcoming study blocks'}</h2></div>{selectedDate && <button className="text-link" onClick={() => setSelectedDate(null)}>Show upcoming <X size={15} /></button>}</div>{currentTasks.length ? currentTasks.map((task) => <div className="task-row" key={`${task.id}-${task.date}`}><button className="task-check" aria-label={`Complete ${task.title}`} onClick={() => { mark(task.id); tell('Progress saved; future tasks were replanned.'); }}><Check size={14} /></button><div><strong>{task.kind === 'lecture' ? 'Lecture review' : task.kind === 'review' ? 'Active recall' : task.kind === 'quiz' ? 'Practice' : 'Study'} · {task.subjectId?.toUpperCase() ?? 'Mixed'}</strong><small>{task.title}</small></div><time>{pretty(task.date)}<br />{task.start}</time></div>) : <p className="empty-copy">No tasks on this date. Add a study slot or choose another day.</p>}</div><p className="reassurance">♡ Missed a block? Leave it unchecked. Your future plan adjusts when you return.</p></div></div></>}
+  {view === 'subjects' && <><PageHeading kicker="THE COMPLETE PRC SCOPE" title="Study by subject" description="Track every extracted syllabus outcome and connect your own lectures." /><div className="subject-tabs">{subjects.map((s) => <button key={s.id} className={subjectId === s.id ? 'active' : ''} onClick={() => { setSubjectId(s.id); setOpenTopic(null); setSearch(''); }}>{s.short}</button>)}</div><div className="subject-banner" style={{ '--subject': subject.color } as CSSProperties}><Flower color="#fff2bf" center="#e5b35e" size={98} /><div><span className="eyebrow">{subject.topics.length} ASSESSABLE ENTRIES</span><h2>{subject.name}</h2><p>Detailed guides and shared questions appear after owner review.</p></div></div><div className="search-row"><label><Search size={18} /><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search topics and outcomes" /></label><span>{visibleTopics.length} shown</span></div><div className="topic-list">{visibleTopics.map((topic) => <div className="topic card" key={topic.id}><button className="topic-main" onClick={() => setOpenTopic(openTopic === topic.id ? null : topic.id)}><span>{topic.code}</span><div><strong>{topic.title}</strong><small>{topic.section} · TOS page {topic.page}</small></div><Plus size={18} /></button>{openTopic === topic.id && <div className="topic-detail"><p className="review-warning"><ShieldCheck size={16} /> {approvedTopics.has(topic.id) ? "Syllabus label reviewed" : "Syllabus label pending editorial review"}</p>{guides[topic.id] ? <><p><b>Key ideas:</b> {guides[topic.id].summary}</p><p><b>Lecture review:</b> {guides[topic.id].lecture_prompt}</p><p><b>Practice goal:</b> {guides[topic.id].practice_prompt}</p></> : <p>Guide pending owner review. Check the PRC source and attach your lecture materials meanwhile.</p>}<div className="topic-actions"><button className={state.completed[`study:${topic.id}`] ? 'done' : ''} onClick={() => mark(`study:${topic.id}`)}><CheckCircle2 size={16} /> Read and practice</button><button className={state.completed[`lecture:${topic.id}`] ? 'done' : ''} onClick={() => mark(`lecture:${topic.id}`)}><CheckCircle2 size={16} /> Review lecture</button><button onClick={() => { setSelectedTopics([topic.id]); go('quiz'); }}><FileQuestion size={16} /> Quiz this topic</button><button onClick={() => { setMaterialTopic(topic.id); go('materials'); }}><Link2 size={16} /> Add material</button></div><a target="_blank" rel="noreferrer" href={subject.sourceUrl}>Open the PRC source ↗</a></div>}</div>)}</div><p className="source-note">{sourceNotice}</p></>}
+  {view === 'bank' && <><PageHeading kicker="MADE BY YOU, FOR YOU" title="Question bank" description="Your questions stay private. Only owner-approved questions enter the shared bank." /><div className="two-column"><section className="card form-card"><h2><Plus size={21} /> {editing ? 'Edit question' : 'Add a question'}</h2><label>Subject<select value={question.subjectId} onChange={(e) => { const id = e.target.value as SubjectId; setQuestion((q) => ({ ...q, subjectId: id, topicId: subjects.find((s) => s.id === id)!.topics[0].id })); }}>{subjects.map((s) => <option value={s.id} key={s.id}>{s.short} — {s.name}</option>)}</select></label><label>Topic<select value={question.topicId} onChange={(e) => setQuestion((q) => ({ ...q, topicId: e.target.value }))}>{subjects.find((s) => s.id === question.subjectId)!.topics.map((t) => <option value={t.id} key={t.id}>{t.code} · {t.title.slice(0, 72)}</option>)}</select></label><label>Question<textarea rows={3} value={question.stem} onChange={(e) => setQuestion((q) => ({ ...q, stem: e.target.value }))} placeholder="Write a clear question" /></label><div className="options-grid">{question.options.map((option, i) => <label key={i}>Option {String.fromCharCode(65 + i)}<input value={option} onChange={(e) => setQuestion((q) => ({ ...q, options: q.options.map((v, n) => n === i ? e.target.value : v) as Question['options'] }))} /></label>)}</div><label>Correct answer<select value={question.answer} onChange={(e) => setQuestion((q) => ({ ...q, answer: Number(e.target.value) }))}>{[0, 1, 2, 3].map((i) => <option value={i} key={i}>Option {String.fromCharCode(65 + i)}</option>)}</select></label><label>Explanation<textarea rows={3} value={question.explanation} onChange={(e) => setQuestion((q) => ({ ...q, explanation: e.target.value }))} placeholder="Why is it correct?" /></label><label>Source (optional)<input value={question.source ?? ''} onChange={(e) => setQuestion((q) => ({ ...q, source: e.target.value }))} /></label><button className="button primary full" onClick={saveQuestion}>Save private question <ArrowRight size={17} /></button></section><div><div className="bank-stats"><div className="card"><strong>{state.personalQuestions.length}</strong><span>Private questions</span></div><div className="card"><strong>{supabase ? starter.length : demoQuestions.length}</strong><span>{supabase ? 'Approved shared' : 'Preview examples'}</span></div><div className="card"><strong>{state.attempts.length}</strong><span>Quiz attempts</span></div></div><div className="card bank-list"><div className="card-heading"><div><span className="eyebrow">YOUR COLLECTION</span><h2>Personal questions</h2></div></div><label className="csv-import"><Upload size={17} /> Import CSV<input type="file" accept=".csv,text/csv" hidden onChange={(e) => { const file = e.target.files?.[0]; if (file) void importCsv(file); e.target.value = ''; }} /></label><p className="field-help">Columns: topic_id, question, option_a, option_b, option_c, option_d, answer (A–D), explanation, source. Quoted fields may contain commas and line breaks.</p>{state.personalQuestions.length ? state.personalQuestions.map((q) => <div className="bank-item" key={q.id}><span>{q.subjectId.toUpperCase()}</span><strong>{q.stem}</strong><small>{topicById[q.topicId]?.title}</small><div><button onClick={() => { setQuestion(q); setEditing(q.id); scrollTo({ top: 0, behavior: 'smooth' }); }}>Edit</button><button onClick={() => setState((s) => ({ ...s, personalQuestions: s.personalQuestions.filter((v) => v.id !== q.id) }))}>Delete</button></div></div>) : <div className="empty-state"><FileQuestion size={35} /><b>No personal questions yet</b><p>Add one here or import a CSV to build your bank faster.</p></div>}</div></div></div></>}
+  {view === 'quiz' && <><PageHeading kicker="ACTIVE RECALL, YOUR WAY" title="Practice quiz" description="Choose topics and turn your question bank into a fresh practice session." />{!quiz ? <div className="quiz-layout"><div className="card form-card"><h2><ListChecks size={21} /> Build your quiz</h2><label>Subject<select value={subjectId} onChange={(e) => { setSubjectId(e.target.value as SubjectId); setSelectedTopics([]); }}>{subjects.map((s) => <option key={s.id} value={s.id}>{s.short} — {s.name}</option>)}</select></label><div className="form-row-title"><h3>Select topics</h3><button onClick={() => setSelectedTopics(subject.topics.map((t) => t.id))}>Select all</button></div><div className="quiz-topics">{subject.topics.map((t) => <label key={t.id}><input type="checkbox" checked={selectedTopics.includes(t.id)} onChange={(e) => setSelectedTopics((ids) => e.target.checked ? [...ids, t.id] : ids.filter((id) => id !== t.id))} /><span>{t.title}</span><small>{pool.filter((q) => q.topicId === t.id).length} Q</small></label>)}</div><div className="quiz-settings"><label>Question count<input type="number" min={1} max={100} value={quizCount} onChange={(e) => setQuizCount(Math.min(100, Math.max(1, Number(e.target.value) || 1)))} /></label><label className="check-label"><input type="checkbox" checked={timed} onChange={(e) => setTimed(e.target.checked)} /> Show timer</label></div><button className="button primary full" onClick={startQuiz}>Start quiz <ArrowRight size={17} /></button></div><div className="quiz-intro"><Flower color="#fff0af" center="#edbc61" size={112} /><h2>Small steps add up.</h2><p>Every attempt shows you what to revisit. Answers and explanations appear after you submit.</p><div className="review-warning">The live shared bank stays empty until its questions are approved.</div></div></div> : <div className="quiz-player"><div className="card-heading"><div><span className="eyebrow">PRACTICE SESSION</span><h2>{quiz.done ? 'Your results' : `${quiz.questions.length} questions`}</h2></div><div>{timed && <span className="timer"><Clock3 size={17} /> {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, '0')}</span>}<button className="text-link" onClick={() => setQuiz(null)}><X size={17} /> Close</button></div></div>{quiz.done && <div className="score-card"><strong>{quiz.questions.filter((q) => quiz.answers[q.id] === q.answer).length}/{quiz.questions.length}</strong><span>correct answers</span></div>}{quiz.questions.map((q, index) => <div className="card quiz-item" key={q.id}><span className="eyebrow">QUESTION {index + 1} · {q.subjectId.toUpperCase()}</span><h3>{q.stem}</h3>{q.options.map((option, i) => <button disabled={quiz.done} key={i} className={`${quiz.answers[q.id] === i ? 'selected' : ''} ${quiz.done && q.answer === i ? 'correct' : ''} ${quiz.done && quiz.answers[q.id] === i && q.answer !== i ? 'wrong' : ''}`} onClick={() => setQuiz((v) => v ? { ...v, answers: { ...v.answers, [q.id]: i } } : v)}><b>{String.fromCharCode(65 + i)}</b>{option}</button>)}{quiz.done && <div className="answer-explanation"><b>{quiz.answers[q.id] === q.answer ? 'Correct!' : `Correct answer: ${String.fromCharCode(65 + q.answer)}`}</b><p>{q.explanation}</p>{q.source && <small>Source: {q.source}</small>}</div>}</div>)}<button className="button primary quiz-action" onClick={() => { if (quiz.done) { const missed = quiz.questions.filter((q) => quiz.answers[q.id] !== q.answer); setQuiz(missed.length ? { questions: missed, answers: {}, start: Date.now(), done: false } : null); } else finishQuiz(); }}>{quiz.done ? 'Retry missed questions' : 'Submit answers'} <ArrowRight size={17} /></button></div>}</>}
+  {view === 'materials' && <><PageHeading kicker="KEEP YOUR REVIEW TOGETHER" title="My materials" description="Attach your links, notes, and private handouts to a syllabus topic." /><div className="two-column"><section className="card form-card"><h2><Link2 size={21} /> Add material</h2><label>Topic<select value={materialTopic} onChange={(e) => setMaterialTopic(e.target.value)}>{subjects.map((s) => <optgroup key={s.id} label={s.name}>{s.topics.map((t) => <option key={t.id} value={t.id}>{t.code} · {t.title.slice(0, 75)}</option>)}</optgroup>)}</select></label><label>Title<input value={materialTitle} onChange={(e) => setMaterialTitle(e.target.value)} placeholder="Lecture 3 notes" /></label><label>Link (optional)<input value={materialUrl} onChange={(e) => setMaterialUrl(e.target.value)} placeholder="https://…" /></label><label>Notes (optional)<textarea rows={4} value={materialNotes} onChange={(e) => setMaterialNotes(e.target.value)} /></label><button className="button primary full" onClick={addMaterial}>Save link or notes <Plus size={17} /></button><label className="upload-box"><CloudUpload size={27} /><b>Upload a private handout</b><span>PDF or image · 10 MB per file · 50 MB per student</span><em>Choose file</em><input type="file" accept="application/pdf,image/png,image/jpeg,image/webp" hidden onChange={(e) => { const file = e.target.files?.[0]; if (file) void uploadFile(file); e.target.value = ''; }} /></label></section><div className="card material-list"><div className="card-heading"><div><span className="eyebrow">YOUR LIBRARY</span><h2>Saved resources</h2></div><small>{(storageBytes / 1024 / 1024).toFixed(1)} MB used</small></div>{state.materials.length ? state.materials.map((m) => <div className="material-item" key={m.id}><span><Link2 size={19} /></span><div><b>{m.title}</b><small>{findSubjectForTopic(m.topicId).short} · {topicById[m.topicId]?.title}</small>{m.notes && <p>{m.notes}</p>}</div><button onClick={() => m.storagePath ? void openMaterial(m.storagePath) : window.open(m.url, '_blank', 'noopener,noreferrer')}>Open</button><button aria-label="Remove" onClick={() => void removeMaterial(m.id, m.storagePath)}><Trash2 size={16} /></button></div>) : <div className="empty-state"><BookOpen size={35} /><b>Nothing saved yet</b><p>Put lecture links and reminders here as you study.</p></div>}</div></div></>}
+  {view === 'owner' && owner && <><PageHeading kicker="OWNER WORKSPACE" title="Content and capacity" description="Your approval is required before a guide or shared question is published." /><div className="bank-stats owner-stats"><div className="card"><strong>{allTopics.length}</strong><span>Extracted outcomes</span></div><div className="card"><strong>{starter.length}</strong><span>Approved questions</span></div><div className="card"><strong>10</strong><span>Student beta places</span></div></div><div className="card owner-checklist"><h2>Publication checklist</h2><ul><li>Compare every extracted label with the 38-page PRC syllabus.</li><li>Review concise notes and three original questions per topic.</li><li>Check current laws, tax rules, standards, and the exam date.</li><li>Approve answer keys, explanations, and source rights before release.</li></ul><p>{sourceNotice}</p></div><OwnerReview /></>}
+  </>}</main><footer className="footer"><div><div className="logo"><Flower color="#fff" center="#f5c564" size={25} /> CPALE <em>Study Tracker</em></div><p>A gentle space to prepare for a big goal.</p></div><div><a href="https://www.prc.gov.ph/sites/default/files/2022-30%20BOA%20TOS%20Final.pdf" target="_blank" rel="noreferrer">PRC syllabus source</a><a href="https://www.prc.gov.ph/2026-schedule-examination" target="_blank" rel="noreferrer">PRC exam schedule</a><a href="/privacy">Privacy</a><a href="/account-deletion">Account deletion</a><span>Independent study tool · Not affiliated with PRC</span></div></footer>
+  {authOpen && <div className="modal-backdrop" onClick={() => setAuthOpen(false)}><div className="auth-modal" role="dialog" aria-modal="true" aria-label="Sign in" onClick={(e) => e.stopPropagation()}><button className="modal-close" onClick={() => setAuthOpen(false)} aria-label="Close"><X size={20} /></button><Flower color="#ffe1eb" center="#f3bf65" size={69} /><h2>{authMode === 'signin' ? 'Welcome back' : 'Make your study space'}</h2><p>Your plan, bank, and progress follow your account.</p>{googleAuthEnabled ? <button className="google" onClick={() => void googleSignIn()}>Continue with Google <ArrowRight size={17} /></button> : <p className="auth-note">Account sign-in opens after the Google setup and beta checks. You can explore a browser-only preview now.</p>}{emailAuthEnabled && <form onSubmit={(e) => void signIn(e)}><span>or use email</span><label>Email<input type="email" required value={authEmail} onChange={(e) => setAuthEmail(e.target.value)} /></label><label>Password<input type="password" minLength={8} required value={authPassword} onChange={(e) => setAuthPassword(e.target.value)} /></label><button className="button primary full">{authMode === 'signin' ? 'Sign in' : 'Create account'}</button><button type="button" className="switch-auth" onClick={() => setAuthMode(authMode === 'signin' ? 'signup' : 'signin')}>{authMode === 'signin' ? 'Need an account? Sign up' : 'Already have an account? Sign in'}</button></form>}{!supabase && <p className="auth-note">Account services are being connected. Explore the local preview meanwhile.</p>}{authMessage && <p className="auth-note">{authMessage}</p>}</div></div>}{notice && <div role="status" className="toast"><CheckCircle2 size={17} />{notice}</div>}</div>;
+}
+
+function PageHeading({ kicker, title, description }: { kicker: string; title: string; description: string }) {
+  return <div className="page-heading"><span className="eyebrow">{kicker}</span><h1>{title} <span>✿</span></h1><p>{description}</p></div>;
 }

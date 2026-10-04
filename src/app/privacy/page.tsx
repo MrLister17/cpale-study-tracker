@@ -1,0 +1,7 @@
+import Link from 'next/link';
+
+export const metadata = { title: 'Privacy | CPALE Study Tracker' };
+
+export default function Privacy() {
+  return <main className="policy-page"><Link href="/">← Back to Study Tracker</Link><h1>Privacy for the free beta</h1><p>Last updated October 4, 2026.</p><h2>What we store</h2><p>We use your sign-in email and account identifier to protect your study space. Your schedule, topic progress, personal questions, quiz attempts, notes, links, and uploaded files are stored for your account. The owner can see aggregate capacity information, but personal study data is not shared with other students.</p><h2>Where it is stored</h2><p>Supabase provides account, database, and private file services. Vercel hosts the website. The app uses browser storage only for an unsigned guest preview. Guest work remains on that device and is not backed up.</p><h2>Shared content</h2><p>Only owner-approved guides and starter questions are shared. Your own questions and materials remain private.</p><h2>Retention and deletion</h2><p>You may request export or deletion of your account and its study data through the <Link href="/account-deletion">account request page</Link>. File links use short-lived access links.</p><h2>Contact</h2><p>For a privacy correction, send an account request after signing in or contact the owner through the private channel used for your beta invitation.</p></main>;
+}
