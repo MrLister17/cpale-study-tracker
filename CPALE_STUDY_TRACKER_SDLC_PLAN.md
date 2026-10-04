@@ -8,7 +8,7 @@ Build a mobile friendly CPALE study space for candidates targeting May 2027 and 
 
 The supplied 38-page PRC Board of Accountancy Table of Specifications (TOS), effective October 2022, is the scope source: [PRC TOS](https://www.prc.gov.ph/sites/default/files/2022-30%20BOA%20TOS%20Final.pdf). The extraction currently contains 462 outcome entries across Financial Accounting and Reporting (FAR), Advanced Financial Accounting and Reporting (AFAR), Management Services (MAS), Auditing (AUD), Regulatory Framework for Business Transactions (RFBT), and Taxation (TAX). **These extracted labels still require editorial comparison with the PDF.** A published guide or starter question requires owner review; no placeholder material is represented as a reviewed lesson.
 
-The free beta has no payments, live AI, or premium entitlements. A future paid version requires a separate commercial hosting and pricing decision.
+The free beta has no payments, live AI, or premium entitlements. A future paid version requires a separate commercial hosting and pricing decision. Six subject-level study outlines are prepared in [CPALE_SUBJECT_GUIDES_DRAFT.md](./CPALE_SUBJECT_GUIDES_DRAFT.md) for the owner to review and turn into approved topic guides.
 
 ## 2. Roles and decision rights
 
@@ -64,18 +64,18 @@ Only the owner receives direct GitHub write and merge access. Contributors can s
 
 ## 7. Current implementation status and open gates
 
-**Built locally and in Supabase:** responsive dashboard; six-subject TOS extraction; planner and progress; personal bank and CSV import; quiz attempt flow; private materials with upload reservation; owner content review interface; database policies; privacy and deletion information pages. Automated build and lint pass; Supabase security advisor reports no findings after the current migrations. This does **not** establish complete content or production readiness.
+**Built locally and in Supabase:** responsive dashboard; six-subject TOS extraction; planner and progress; personal bank and CSV import; quiz attempt flow; private materials with upload reservation; owner content review interface; official exam-cycle management; database policies; private export/deletion request flow. Automated build, lint, and focused planner/CSV/quiz tests pass; Supabase security advisor reports no findings after the current migrations. This does **not** establish complete content or beta readiness.
 
 **Content gate:** 462 extracted outcomes need editorial verification; approved concise guides and at least three reviewed starter questions per outcome are still outstanding. The owner review interface intentionally starts with no published guide or shared bank. Regulatory, tax, and accounting content must be checked against current authoritative sources before publication.
 
 **Account gate:** the new Supabase project exists, but Google OAuth credentials must be created in Google Cloud and installed in Supabase Auth. A free SMTP provider must pass actual signup and reset messages before email/password is offered publicly. Until then, the beta is not open for account signup.
 
-**Release gate:** GitHub repository, Vercel preview/production linkage, CI, browser acceptance, cross-user security tests, restore rehearsal, and owner acceptance must be completed before opening the ten-student beta. Mark an issue complete only with a link to the relevant test, content approval, or preview evidence.
+**Release gate:** The [public GitHub repository](https://github.com/MrLister17/cpale-study-tracker) is linked to a [Vercel deployment](https://cpale-study-tracker.vercel.app) that currently requires Vercel authentication; GitHub checks pass. Vercel assigned its first deployment to the production environment automatically, but deployment protection keeps the site closed to public visitors. Cross-user security tests, a restore rehearsal, Google sign-in, content review, and owner acceptance remain before opening the ten-student beta. Mark an issue complete only with a link to the relevant test, content approval, or preview evidence.
 
 ## 8. Google sign-in setup handoff
 
 1. In a Google Cloud project controlled by the owner, configure an OAuth consent screen for the intended testers. Add the owner and testers if the Google app remains in testing mode.
-2. Create a **Web application** OAuth client. Add authorized JavaScript origins for the final Vercel domain and local development URL. Add Supabase's callback URI: `https://xrrlznyxrhitfdjwbttu.supabase.co/auth/v1/callback`.
+2. Create a **Web application** OAuth client. Add authorized JavaScript origins `https://cpale-study-tracker.vercel.app` and `http://localhost:3000`. Add Supabase's callback URI: `https://xrrlznyxrhitfdjwbttu.supabase.co/auth/v1/callback`.
 3. Enter the Google client ID and secret directly into **Supabase → Authentication → Providers → Google**. Never put the secret in chat, GitHub, or `NEXT_PUBLIC_` variables.
 4. In **Supabase → Authentication → URL Configuration**, set the production site URL and allow the Vercel preview and local callback URLs as needed. Test sign-in and sign-out with the owner account and one student account.
 5. Keep public invitations closed until the flow, account cap, and owner exemption are verified. The owner uses the exact email already configured privately in `internal.app_config`.

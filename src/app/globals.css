@@ -15,4 +15,7 @@
 .usage-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}.usage-row span{padding:10px 12px;background:#f3f8ee;border-radius:11px;font-size:13px;color:#506653}.usage-row b{color:#2e6840}
 .request-form{display:flex;flex-wrap:wrap;gap:10px;padding:20px;background:#f4f8ee;border-radius:15px}.request-form button{padding:11px 16px;background:#f45f87;color:white;border:0;border-radius:10px;font-weight:700;cursor:pointer}.request-form p{flex-basis:100%;margin:0;color:#58715d}
 .account-requests{padding:14px 18px;background:#fff4e8;border-radius:12px;margin:16px 0}.account-requests h3{margin:0 0 8px;font-size:16px}.account-requests p{margin:7px 0;font-size:13px;overflow-wrap:anywhere}
+.cycle-review{padding:18px 20px;background:#f5f9ef;border-radius:13px;margin:16px 0}.cycle-review h3{margin:0;font-size:18px}.cycle-review p{font-size:13px;color:#5c725f}.cycle-review label{max-width:550px}
+.topic-results{padding:18px 22px;margin:15px 0}.topic-results h3,.attempt-history h3{font-size:18px;margin:0 0 12px}.topic-results p,.attempt-history p{display:flex;justify-content:space-between;gap:15px;border-top:1px solid #e7eadf;padding-top:9px;margin:9px 0;font-size:13px}.topic-results b,.attempt-history b{white-space:nowrap;color:#dc4a73}.attempt-history{margin-top:24px;text-align:left;width:100%}
+.topic-rating{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:#45614b;margin:14px 0}.topic-rating select{padding:7px 10px;border:1px solid #d9e3d4;border-radius:8px;background:white;color:#304736}
 .hero{min-height:410px;height:auto}

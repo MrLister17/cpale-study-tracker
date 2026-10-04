@@ -22,7 +22,7 @@ npm run build
 npm audit --omit=dev --audit-level=high
 ```
 
-The PDF extraction script `scripts/extract-tos.py` reads the supplied TOS and writes `src/data/syllabus.json`. Its output is a review queue, not reviewed teaching content. The app only displays approved guides and shared questions.
+The PDF extraction script `scripts/extract-tos.py` reads the supplied TOS and writes `src/data/syllabus.json`. Its output is a review queue, not reviewed teaching content. Six subject outlines are in [CPALE_SUBJECT_GUIDES_DRAFT.md](./CPALE_SUBJECT_GUIDES_DRAFT.md). The app only displays approved guides and shared questions.
 
 ## Release
 

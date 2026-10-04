@@ -36,6 +36,11 @@ export async function POST(request: Request) {
     await client.rpc('cancel_material_upload', { p_id: reservation.file_id });
     return NextResponse.json({ error: result.error.message }, { status: 500 });
   }
-  await client.rpc('finish_material_upload', { p_id: reservation.file_id });
+  const confirmed = await client.rpc('finish_material_upload', { p_id: reservation.file_id });
+  if (confirmed.error) {
+    await client.storage.from('materials').remove([reservation.storage_path]);
+    await client.rpc('cancel_material_upload', { p_id: reservation.file_id });
+    return NextResponse.json({ error: 'Upload could not be finalized. Please try again.' }, { status: 500 });
+  }
   return NextResponse.json({ id: reservation.file_id, path: reservation.storage_path });
 }

@@ -23,6 +23,7 @@ export type Subject = {
 
 export type WeeklySlot = { id: string; weekday: number; start: string; end: string };
 export type Rating = 'new' | 'developing' | 'confident';
+export type ExamCycle = { id: string; label: string; starts_on: string | null; ends_on: string | null; status: 'provisional' | 'confirmed'; source_url: string | null };
 export type TaskKind = 'study' | 'lecture' | 'quiz' | 'review' | 'mock';
 export type StudyTask = {
   id: string;
@@ -72,6 +73,7 @@ export type Material = {
 export type StudyState = {
   version: 1;
   name: string;
+  examCycleId: string;
   targetDate: string;
   targetDateStatus: 'provisional' | 'confirmed';
   slots: WeeklySlot[];
@@ -88,6 +90,7 @@ export type StudyState = {
 export const EMPTY_STATE: StudyState = {
   version: 1,
   name: '',
+  examCycleId: '2027-may',
   targetDate: '',
   targetDateStatus: 'provisional',
   slots: [
