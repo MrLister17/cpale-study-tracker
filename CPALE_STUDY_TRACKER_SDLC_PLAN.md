@@ -72,7 +72,7 @@ These milestones and their acceptance items are tracked in [GitHub Issues](https
 
 **Account gate:** the new Supabase project exists, but Google OAuth credentials must be created in Google Cloud and installed in Supabase Auth. A free SMTP provider must pass actual signup and reset messages before email/password is offered publicly. Until then, the beta is not open for account signup.
 
-**Release gate:** The [public GitHub repository](https://github.com/MrLister17/cpale-study-tracker) is linked to a [Vercel deployment](https://cpale-study-tracker.vercel.app) that currently requires Vercel authentication; GitHub checks pass. Vercel assigned its first deployment to the production environment automatically, but deployment protection keeps the site closed to public visitors. Cross-user security tests, a restore rehearsal, Google sign-in, content review, and owner acceptance remain before opening the ten-student beta. Mark an issue complete only with a link to the relevant test, content approval, or preview evidence.
+**Release gate:** The [public GitHub repository](https://github.com/MrLister17/cpale-study-tracker) is linked to a [public Vercel guest preview](https://cpale-study-tracker.vercel.app); GitHub checks pass. The owner chose to test the public browser-only preview before configuring Google sign-in. Cross-user security tests, a restore rehearsal, persistent accounts, content review, and owner acceptance remain before opening the ten-student beta. The sequenced remaining work is in [CPALE_REMAINING_WORK_PLAN.md](./CPALE_REMAINING_WORK_PLAN.md). Mark an issue complete only with a link to the relevant test, content approval, or preview evidence.
 
 ## 8. Google sign-in setup handoff
 

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildPlan } from '../src/lib/planner';
+import { buildPlan, orderedTopicsForPlan } from '../src/lib/planner';
 import { EMPTY_STATE, type StudyState } from '../src/lib/types';
 import { allTopics } from '../src/lib/syllabus';
 
@@ -48,4 +48,15 @@ test('missed question creates a review task', () => {
   const topic = allTopics[0];
   const result = buildPlan(state({ targetDate: '2026-10-06', needsReview: { [topic.id]: '2026-10-05' }, slots: [{ id: 'a', weekday: 1, start: '09:00', end: '11:00' }] }), '2026-10-05');
   assert.ok(result.tasks.some((task) => task.id === `weak:${topic.id}`));
+});
+
+test('first pass visits all six subjects before repeating one', () => {
+  const firstSix = orderedTopicsForPlan().slice(0, 6).map((topic) => topic.id.split('-')[0]);
+  assert.deepEqual(new Set(firstSix), new Set(['far', 'afar', 'mas', 'aud', 'rfbt', 'tax']));
+});
+
+test('a standard weekly schedule reaches all six subjects within one month', () => {
+  const plan = buildPlan(state({ targetDate: '2027-05-15' }), '2026-10-05');
+  const octoberSubjects = new Set(plan.tasks.filter((task) => task.date.startsWith('2026-10')).map((task) => task.subjectId).filter(Boolean));
+  assert.deepEqual(octoberSubjects, new Set(['far', 'afar', 'mas', 'aud', 'rfbt', 'tax']));
 });
