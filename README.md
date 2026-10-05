@@ -1,6 +1,6 @@
 # CPALE Study Tracker
 
-A free, mobile friendly CPALE study planner and practice space. This is an **unreleased preview** until the syllabus, guides, starter questions, sign-in, security, and release gates in [CPALE_STUDY_TRACKER_SDLC_PLAN.md](./CPALE_STUDY_TRACKER_SDLC_PLAN.md) pass owner review.
+A free, mobile friendly CPALE study planner and practice space. The public site is a **guest preview**, not the completed account beta. The syllabus, guides, starter questions, sign-in, security, and release gates in [CPALE_STUDY_TRACKER_SDLC_PLAN.md](./CPALE_STUDY_TRACKER_SDLC_PLAN.md) still require owner review.
 
 ## Local setup
 
@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open http://localhost:3000. Without sign-in, edits live only in that browser's local storage. The existing Supabase project is in the owner account. Apply migrations in `supabase/migrations` in filename order to a different Supabase project for development or restore testing; do not rerun them blindly against production.
+Open http://localhost:3000. Without sign-in, edits live only in that browser's local storage. The planner provides guest backup download and restore. The dashboard calendar shows subjects and tasks for each selected day; the quiz builder can combine topics across all six subjects. The existing Supabase project is in the owner account. Apply migrations in `supabase/migrations` in filename order to a different Supabase project for development or restore testing; do not rerun them blindly against production.
 
 ## Checks
 
@@ -23,6 +23,8 @@ npm audit --omit=dev --audit-level=high
 ```
 
 The PDF extraction script `scripts/extract-tos.py` reads the supplied TOS and writes `src/data/syllabus.json`. Its output is a review queue, not reviewed teaching content. Six subject outlines are in [CPALE_SUBJECT_GUIDES_DRAFT.md](./CPALE_SUBJECT_GUIDES_DRAFT.md). The app only displays approved guides and shared questions.
+
+`python3 scripts/build-content-review-queue.py` refreshes the [TOS audit](./content/CPALE_TOS_AUDIT.md) and 462-row CSV checklist from the extracted index. The six third-party REO spreadsheets supplied for personal study are not copied into this public repository or shared question bank.
 
 ## Release
 

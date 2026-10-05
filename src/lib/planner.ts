@@ -1,4 +1,4 @@
-import { allTopics, findSubjectForTopic } from './syllabus';
+import { allTopics, findSubjectForTopic, subjects } from './syllabus';
 import type { StudyState, StudyTask, TaskKind } from './types';
 
 export function phDate(now = new Date()): string {
@@ -43,6 +43,20 @@ export type PlanResult = {
   coveragePercent: number;
 };
 
+export function orderedTopicsForPlan(ratings: StudyState['ratings'] = {}) {
+  const rank = { new: 0, developing: 1, confident: 2 };
+  const ordered: typeof allTopics = [];
+  for (const level of [0, 1, 2]) {
+    const bySubject = subjects.map((subject) => subject.topics
+      .filter((topic) => rank[ratings[topic.id] ?? 'new'] === level)
+      .sort((a, b) => a.page - b.page || a.id.localeCompare(b.id)));
+    for (let index = 0; bySubject.some((topics) => index < topics.length); index++) {
+      for (const topics of bySubject) if (topics[index]) ordered.push(topics[index]);
+    }
+  }
+  return ordered;
+}
+
 export function buildPlan(state: StudyState, today = phDate()): PlanResult {
   const end = state.targetDate;
   const totalMinutes = allTopics.length * (20 + 20 + 20 + 3 * 20);
@@ -50,12 +64,7 @@ export function buildPlan(state: StudyState, today = phDate()): PlanResult {
     return { tasks: [], totalMinutes, scheduledMinutes: 0, unscheduled: allTopics.length, capacityMinutes: 0, coveragePercent: 0 };
   }
 
-  const topics = [...allTopics].sort((a, b) => {
-    const rank = { new: 0, developing: 1, confident: 2 };
-    const aRank = rank[state.ratings[a.id] ?? 'new'];
-    const bRank = rank[state.ratings[b.id] ?? 'new'];
-    return aRank - bRank || a.page - b.page || a.id.localeCompare(b.id);
-  });
+  const topics = orderedTopicsForPlan(state.ratings);
   const firstPass: Pending[] = [];
   for (const topic of topics) {
     firstPass.push(

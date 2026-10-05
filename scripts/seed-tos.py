@@ -11,7 +11,7 @@ def q(value):
 mode = sys.argv[1]
 if mode == 'subjects':
     print("insert into public.exam_cycles(id,label,starts_on,ends_on,status,source_url) values "
-          "('may-2027','May 2027 CPALE',null,null,'provisional',null) "
+          "('2027-may','May 2027 CPALE',null,null,'provisional',null) "
           "on conflict (id) do nothing;")
     print('insert into public.syllabus_subjects(id,name,abbreviation,position,source_url) values')
     print(',\n'.join(f"({q(s['id'])},{q(s['name'])},{q(s['short'])},{i},{q(s['sourceUrl'])})" for i, s in enumerate(subjects, 1)))
