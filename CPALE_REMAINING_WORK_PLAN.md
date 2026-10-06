@@ -9,7 +9,7 @@ Updated: October 5, 2026 (Philippine time). This plan starts from the [public gu
 - Account sign-in is intentionally unavailable in the public preview. Google OAuth was deferred so the owner can test immediately; email signup also remains disabled pending real delivery tests.
 - The TOS extraction has 462 assessable outcome entries across six subjects. Their labels need comparison with the source PDF. The shared guide and question bank require editorial approval before students rely on them. The completion target is one approved guide and at least three approved original questions per entry: **462 guides and 1,386 questions** if every extracted entry is confirmed assessable.
 - [GitHub issues #2–#8](https://github.com/MrLister17/cpale-study-tracker/issues) already track the major open work. This document orders those items and supplies release decisions.
-- **Implemented after this plan was drafted:** guest backup/restore, a cross-subject quiz picker, six-subject first-pass scheduling, an interactive calendar with per-day tasks and monthly subject counts, a searchable owner review queue, and a 462-row TOS review checklist. These changes do not satisfy the content, account, security, or release gates below.
+- **Implemented after this plan was drafted:** guest backup/restore, a cross-subject quiz picker, six-subject first-pass scheduling, an interactive calendar with per-day tasks and monthly subject counts, a searchable owner review queue, a 462-row TOS review checklist, and six original study paths adapted from the supplied sample workbooks. The study paths cover 113 focus areas and provide a method for every syllabus outcome. They do not satisfy the detailed lesson, approved question, account, security, or release gates below.
 
 ## Release stages
 
