@@ -53,14 +53,15 @@ export type PlanResult = {
   shortfallMinutes: number;
 };
 
-export function orderedTopicsForPlan(ratings: StudyState['ratings'] = {}, needsReview: StudyState['needsReview'] = {}) {
+export function orderedTopicsForPlan(ratings: StudyState['ratings'] = {}, needsReview: StudyState['needsReview'] = {}, lessonTopicIds: ReadonlySet<string> = new Set()) {
   const rank = { new: 0, developing: 1, confident: 2 };
   const priority = (id: string) => needsReview[id] ? -1 : rank[ratings[id] ?? 'new'];
   const ordered: typeof allTopics = [];
   for (const level of [-1, 0, 1, 2]) {
     const bySubject = subjects.map((subject) => subject.topics
       .filter((topic) => priority(topic.id) === level)
-      .sort((a, b) => topicGroupExamShare(b.id) - topicGroupExamShare(a.id) ||
+      .sort((a, b) => Number(lessonTopicIds.has(b.id)) - Number(lessonTopicIds.has(a.id)) ||
+        topicGroupExamShare(b.id) - topicGroupExamShare(a.id) ||
         a.page - b.page || a.id.localeCompare(b.id)));
     for (let index = 0; bySubject.some((topics) => index < topics.length); index++) {
       for (const topics of bySubject) if (topics[index]) ordered.push(topics[index]);
@@ -69,7 +70,7 @@ export function orderedTopicsForPlan(ratings: StudyState['ratings'] = {}, needsR
   return ordered;
 }
 
-export function buildPlan(state: StudyState, today = phDate()): PlanResult {
+export function buildPlan(state: StudyState, today = phDate(), lessonTopicIds: ReadonlySet<string> = new Set()): PlanResult {
   const end = state.targetDate;
   const dateIsUsable = validDay(end) && validDay(today) && daysBetween(today, end) > 0;
   const completed = state.completed;
@@ -91,7 +92,7 @@ export function buildPlan(state: StudyState, today = phDate()): PlanResult {
       remainingMinutes, shortfallMinutes: validDay(end) ? remainingMinutes : 0 };
   }
 
-  const topics = orderedTopicsForPlan(state.ratings, state.needsReview);
+  const topics = orderedTopicsForPlan(state.ratings, state.needsReview, lessonTopicIds);
   const firstPass: Pending[] = [];
   for (const topic of topics) {
     firstPass.push(

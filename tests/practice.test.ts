@@ -30,6 +30,24 @@ test('mock reports sparse coverage instead of claiming a representative exam', (
   assert.equal(result.method, 'official-tos-weights');
   assert.match(result.limitation ?? '', /Only 3 of 70/);
   assert.match(result.limitation ?? '', /official TOS groups/);
+  assert.equal(result.difficultyBreakdown.untagged, 3);
+  assert.match(result.difficultyLimitation ?? '', /not yet representative/);
+});
+
+test('mock attempts target a 30/40/30 difficulty mix when tagged questions permit it', () => {
+  const levels: NonNullable<Question['difficulty']>[] = [
+    'easy', 'easy', 'easy', 'moderate', 'moderate', 'moderate', 'moderate', 'difficult', 'difficult', 'difficult',
+  ];
+  const pool = levels.map((difficulty, index): Question => ({
+    ...sampleQuestions[0],
+    id: `tagged-${index}`,
+    difficulty,
+  }));
+  const result = assembleSubjectMock(pool, 'far', 10, () => 0.999);
+  assert.deepEqual(result.difficultyTarget, { easy: 3, moderate: 4, difficult: 3 });
+  assert.deepEqual(result.difficultyBreakdown, { easy: 3, moderate: 4, difficult: 3, untagged: 0 });
+  assert.equal(result.difficultyLimitation, null);
+  assert.equal(result.complete, false); // A single syllabus group is still inadequate for a subject mock.
 });
 
 test('topic scoring counts wrong and unanswered items for targeted review', () => {

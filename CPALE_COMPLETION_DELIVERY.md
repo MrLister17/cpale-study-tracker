@@ -1,50 +1,49 @@
-# CPALE Study Tracker: completion delivery and responsibilities
+# CPALE Study Tracker: personal study delivery
 
-Updated: October 6, 2026 (Philippine time)
+Updated: October 7, 2026 (Philippine time)
 
-## Outcome
+## Current scope
 
-A free candidate should be able to open a scheduled topic, learn from a current and sourced lesson, answer reviewed questions, understand mistakes, and receive a realistic next review. Six-subject coverage, cross-device persistence, privacy, and recovery are required before calling the ten-student beta complete.
+This release serves one candidate on one device. The plan, notes, mistakes, attempts, private questions, and imported study pack save in that browser. A downloadable JSON backup carries them to another browser if needed. Account sign-in, public beta admission, and guest file uploads are outside the current personal release. The May 2027 date remains provisional until PRC publishes and verifies the schedule.
 
-## Roles and decision rights
+The six attached study-guide workbooks inform sequence and focus. The [PRC Table of Specifications](https://www.prc.gov.ph/sites/default/files/2022-30%20BOA%20TOS%20Final.pdf) defines the 465 assessable outcomes. Draft factual content is never represented as qualified-reviewer-approved.
 
-| Role | Accountable for | Work in this build | Acceptance evidence |
-|---|---|---|---|
-| Product owner (Yvan) | Intended candidate experience, content publication, beta opening, provider accounts and secrets | Review a realistic week, approve question/lesson accuracy and source rights, configure sign-in provider when ready | Signed-off content batch and release checklist |
-| Delivery lead (Codex root agent) | Architecture, integration, schedule, release evidence | Integrate lessons, diagnostic, mock, calendar-to-lesson flow, account readiness, test the deployed preview | Passing checks and end-to-end student journey |
-| Learning-content agent | Original lessons and syllabus mapping | Draft goals, concise explanations, worked examples, common errors, sources and review metadata across six subjects | Coverage report and content validation tests |
-| Practice agent | Question quality and assessment logic | Draft four-option items with rationales and sources; implement diagnostic, mock assembly and per-topic scoring | Item validation, no repeated questions, scarcity reporting, unit tests |
-| Planner agent | Scheduling and readiness model | Use verifiable TOS weights, quiz outcomes and available study hours for priorities and future reviews | Deterministic tests for weak topics, hours, missed tasks and all-six coverage |
-| Qualified CPA subject reviewer (owner or delegate) | Accuracy of accounting, audit, law and tax content | Check every lesson, answer, explanation, effective date and source before the shared bank is published | Recorded review decision and date per item |
-| Security and QA lead (delivery lead until delegated) | Privacy, accessibility, backup and release checks | Test two accounts, storage limits, keyboard/mobile flows, export/restore and rollback | Test report with no release-blocking findings |
+## Six candidate goals
 
-## Work sequence
-
-1. **Scope and content:** keep the PRC TOS as the coverage checklist; map the six provided study-guide schedules to original lessons and practice items. Draft content carries explicit review status.
-2. **Candidate loop:** connect daily calendar tasks to topic lessons, then practice, explanations, weak-topic review and readiness feedback. A mock never claims full exam representation when the reviewed bank is too small.
-3. **Persistence and privacy:** enable a tested sign-in method, move guest work only with consent, and verify row-level isolation and storage limits with two accounts.
-4. **Quality and release:** run unit tests, lint, build, browser journeys, security advisors, accessibility checks and a restore rehearsal. Merge through GitHub checks and inspect the Vercel deployment.
-
-## Release gates
-
-| Gate | Required evidence | Decision owner |
+| Goal | Current state | Evidence and remaining work |
 |---|---|---|
-| Content | Confirmed topic map; reviewed lesson and question coverage; current authoritative sources for variable rules | Product owner and qualified reviewer |
-| Candidate usability | One complete daily study loop and realistic diagnostic/mock flow on desktop and phone | Product owner |
-| Accounts and privacy | Owner plus two student accounts; private data isolation; signup cap; upload limits; account deletion | Delivery lead and product owner |
-| Operations | Restore rehearsal, rollback instructions, free-tier usage check, PRC schedule monitoring | Delivery lead and product owner |
+| 1. Actual lessons for scheduled topics | **In progress** | 65 original, sourced worked-lesson drafts cover 120/465 outcomes, including 21/21 Management Services outcomes. The other 345 outcomes need worked lessons; every draft needs qualified review before public publication. The candidate can import the private pack and read these drafts locally. |
+| 2. Usable question bank | **In progress** | 96 original, sourced draft MCQs cover 58 outcomes, 16 per subject. No item is published or qualified-reviewer-approved. Another 1,304 items are needed to reach three per outcome even if all current drafts pass review. Personal questions and CSV import work. |
+| 3. Mistake notebook | **Software complete** | Wrong and unanswered quiz items create notes; the candidate records why the answer was missed, writes a correction, chooses a review date, and retries. Spaced reminders and backups include the notes. |
+| 4. Representative mocks | **In progress** | Mock assembly follows PRC TOS group weights, targets the 30/40/30 difficulty mix when tags permit, avoids repeated items, and discloses shortages. The present bank cannot make a complete representative subject mock. |
+| 5. Daily study loop and honest progress | **Software complete; content limited** | Calendar days show subject tasks; the planner rotates all six subjects, prioritizes available worked lessons, reassigns missed blocks, logs time, and schedules recall. Readiness separates reviewed evidence from self-ratings and unreviewed drafts. Full content and candidate acceptance testing remain. |
+| 6. One-device recovery | **Complete for browser study data** | Browser storage, a weekly backup reminder, validated JSON export, and restore cover the personal study pack, plan, questions, attempts, notes, and mistake reviews. Guest PDF/image uploads are not included; keep handouts as links or notes. |
 
-The public guest preview can show planning and clearly marked study directions while these gates are open. Draft answer keys and factual lessons must not be described as approved content. A checked box or a high scheduled-coverage percentage is not a readiness score.
+## Personal study pack
 
-## Delivery evidence on October 6, 2026
+The ignored local file `.private/CPALE_PERSONAL_STUDY_PACK.json` contains the 65 lesson drafts and 96 question drafts. It is excluded from the public Git repository. On the site, open **Subjects → Import study pack** and choose that file. It is stored in the current browser and included in **My plan → Download backup**. The app labels every imported lesson as a draft and warns when quizzes use unreviewed answers. Importing another pack replaces pack content without erasing progress or personal questions.
 
-| Area | Verified state | Remaining release work |
+## Roles and responsibilities
+
+| Role | Responsibility | Exit evidence |
 |---|---|---|
-| Syllabus | 465 extracted outcomes across six subjects; AFAR translation and TAX local-taxation omissions corrected; TOS item allocations mapped | Human comparison of 188 flagged labels with the PRC PDF |
-| Lessons | 37 original owner-only drafts link 73 outcomes; zero published; protected editor and published reader built | Reviewer approval and worked lessons for 392 outcomes still without one |
-| Shared questions | 60 owner-only drafts across six subjects; zero published; public visitor sees none | Review all drafts and reach three approved items per outcome (1,395 target) |
-| Candidate loop | Calendar opens its assigned outcome; time entry, weighted plan, weak-area review, readiness, diagnostics and TOS-group mock assembly implemented | Validate with real candidates and an approved question pool |
-| Database | Lesson and reviewer-provenance migrations applied; anonymous API sees zero draft lessons or questions; security advisor has no findings | Two-account isolation, owner publication and account recovery tests after sign-in setup |
-| Code quality | 31 automated tests, lint, TypeScript build, production build and dependency audit pass locally; GitHub CI and the Vercel pull-request preview passed | Mobile and keyboard acceptance with candidates |
+| Candidate and product owner (Yvan) | Decide which subjects and lesson gaps matter first; study with the private pack; review the experience; save weekly backups; approve future publication. | Real one-week study trial and feedback; backup file retained outside browser. |
+| Delivery lead (Codex) | Integrate site, planner, content tooling, quiz, backups, tests, and reviewable GitHub/Vercel changes. | Green checks, browser journey, documented limitations, preview link. |
+| Learning-content author | Draft original worked lessons, map each to TOS outcomes, cite current sources, and flag applicability. | Coverage register and structural validation. |
+| Practice author | Draft original MCQs with four choices, answer explanations, source and provisional difficulty/cognitive tags. | Unique, mapped, structurally checked review queue. |
+| Qualified CPA subject reviewer | Verify standards, tax law, answer keys, worked examples, effective dates, and source rights before publishing. | Recorded reviewer and review date per published item. |
+| QA/security lead (delivery lead until delegated) | Test scheduling, quiz, local recovery, mobile and keyboard use; keep private drafts out of anonymous Supabase reads and Git. | Automated checks, browser rehearsal, security advisor result, backup parse test. |
 
-The beta remains closed until a working sign-in provider, owner account access, content review, account isolation, export/restore rehearsal, and product-owner release approval are verified. The owner should supply provider configuration through service settings, never by posting a secret in chat.
+## Verification at this handoff
+
+- 38 automated tests, lint, TypeScript production build passed locally.
+- Browser rehearsal: imported the pack, opened a worked draft, took a draft quiz, created a mistake note, downloaded a backup, and parsed the saved backup. The backup contained 65 lessons, 96 questions, and the mistake note.
+- Supabase has 65 lesson drafts and 96 question drafts, zero published. Anonymous reads of draft content return zero rows. Its security advisor reported no findings after the question metadata migration.
+- The repo and deployed preview must be checked again after this branch is pushed. Production should retain its current reviewed-content boundary until the owner approves a release.
+
+## Next content milestones
+
+1. Complete worked lessons for the remaining 345 outcomes, starting with high-weight TOS groups and topics scheduled earliest.
+2. Review the 65 lessons and 96 questions with a qualified subject reviewer, correcting current-law and effective-date details.
+3. Expand the item bank topic by topic until each outcome has at least three reviewed questions; add multiple difficulty levels and test representative mocks again.
+4. Have the candidate use the site for one real week, then fix any friction in the daily task, quiz, mistake, and backup flow.

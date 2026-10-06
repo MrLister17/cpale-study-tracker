@@ -65,6 +65,15 @@ test('first pass visits all six subjects before repeating one', () => {
   assert.deepEqual(new Set(firstSix), new Set(['far', 'afar', 'mas', 'aud', 'rfbt', 'tax']));
 });
 
+test('available worked lessons lead within each subject without hiding uncovered outcomes', () => {
+  const ids = new Set(['far-005', 'afar-014', 'mas-001', 'aud-001', 'rfbt-001', 'tax-001']);
+  const ordered = orderedTopicsForPlan({}, {}, ids);
+  assert.equal(ordered.length, allTopics.length);
+  assert.deepEqual(new Set(ordered.slice(0, 6).map((topic) => topic.id.split('-')[0])), new Set(['far', 'afar', 'mas', 'aud', 'rfbt', 'tax']));
+  assert.equal(ordered[0].id, 'far-005');
+  assert.equal(ordered[1].id, 'afar-014');
+});
+
 test('a standard weekly schedule reaches all six subjects within one month', () => {
   const plan = buildPlan(state({ targetDate: '2027-05-15' }), '2026-10-05');
   const octoberSubjects = new Set(plan.tasks.filter((task) => task.date.startsWith('2026-10')).map((task) => task.subjectId).filter(Boolean));
