@@ -1,6 +1,6 @@
 # CPALE Study Tracker
 
-A free, mobile friendly CPALE study planner and practice space. The public site is a **guest preview**, not the completed account beta. The syllabus, guides, starter questions, sign-in, security, and release gates in [CPALE_STUDY_TRACKER_SDLC_PLAN.md](./CPALE_STUDY_TRACKER_SDLC_PLAN.md) still require owner review.
+A free, mobile friendly CPALE study planner and practice space. The public site is a **guest preview**, not the completed account beta. Sample-based study paths are available for all six subjects; the extracted syllabus labels, detailed lessons, starter questions, sign-in, security, and release gates in [CPALE_STUDY_TRACKER_SDLC_PLAN.md](./CPALE_STUDY_TRACKER_SDLC_PLAN.md) still require owner review.
 
 ## Local setup
 
@@ -22,9 +22,9 @@ npm run build
 npm audit --omit=dev --audit-level=high
 ```
 
-The PDF extraction script `scripts/extract-tos.py` reads the supplied TOS and writes `src/data/syllabus.json`. Its output is a review queue, not reviewed teaching content. Six subject outlines are in [CPALE_SUBJECT_GUIDES_DRAFT.md](./CPALE_SUBJECT_GUIDES_DRAFT.md). The app only displays approved guides and shared questions.
+The PDF extraction script `scripts/extract-tos.py` reads the supplied TOS and writes `src/data/syllabus.json`. Its output is a review queue. Six subject outlines are in [CPALE_SUBJECT_GUIDES_DRAFT.md](./CPALE_SUBJECT_GUIDES_DRAFT.md). The Subjects page also contains original study paths adapted from the six supplied sample workbooks. Detailed notes and shared questions appear only after owner approval.
 
-`python3 scripts/build-content-review-queue.py` refreshes the [TOS audit](./content/CPALE_TOS_AUDIT.md) and 462-row CSV checklist from the extracted index. The six third-party REO spreadsheets supplied for personal study are not copied into this public repository or shared question bank.
+`python3 scripts/build-content-review-queue.py` refreshes the [TOS audit](./content/CPALE_TOS_AUDIT.md) and 462-row CSV checklist from the extracted index. [The sample guide content map](./content/SAMPLE_GUIDE_CONTENT_MAP.md) records which sheets informed the new study paths and which older topics were excluded. The original third-party workbooks are not copied into this public repository or shared question bank.
 
 ## Release
 
