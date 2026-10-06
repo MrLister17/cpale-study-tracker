@@ -45,6 +45,6 @@ The public guest preview can show planning and clearly marked study directions w
 | Shared questions | 60 owner-only drafts across six subjects; zero published; public visitor sees none | Review all drafts and reach three approved items per outcome (1,395 target) |
 | Candidate loop | Calendar opens its assigned outcome; time entry, weighted plan, weak-area review, readiness, diagnostics and TOS-group mock assembly implemented | Validate with real candidates and an approved question pool |
 | Database | Lesson and reviewer-provenance migrations applied; anonymous API sees zero draft lessons or questions; security advisor has no findings | Two-account isolation, owner publication and account recovery tests after sign-in setup |
-| Code quality | 31 automated tests, lint, TypeScript build, production build and dependency audit pass locally | GitHub CI, Vercel preview and mobile/keyboard acceptance on the candidate branch |
+| Code quality | 31 automated tests, lint, TypeScript build, production build and dependency audit pass locally; GitHub CI and the Vercel pull-request preview passed | Mobile and keyboard acceptance with candidates |
 
 The beta remains closed until a working sign-in provider, owner account access, content review, account isolation, export/restore rehearsal, and product-owner release approval are verified. The owner should supply provider configuration through service settings, never by posting a secret in chat.
