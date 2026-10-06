@@ -39,7 +39,7 @@ The ignored local file `.private/CPALE_PERSONAL_STUDY_PACK.json` contains the 65
 - 38 automated tests, lint, TypeScript production build passed locally.
 - Browser rehearsal: imported the pack, opened a worked draft, took a draft quiz, created a mistake note, downloaded a backup, and parsed the saved backup. The backup contained 65 lessons, 96 questions, and the mistake note.
 - Supabase has 65 lesson drafts and 96 question drafts, zero published. Anonymous reads of draft content return zero rows. Its security advisor reported no findings after the question metadata migration.
-- The repo and deployed preview must be checked again after this branch is pushed. Production should retain its current reviewed-content boundary until the owner approves a release.
+- GitHub checks and the Vercel preview passed after the branch was pushed. The product owner approved merging these software changes on October 7, 2026. The private drafts remain outside the public deployment and still require review before publication.
 
 ## Next content milestones
 
