@@ -1,3 +1,5 @@
+import type { StudyLesson } from './lessonTypes';
+
 export type SubjectId = 'far' | 'afar' | 'mas' | 'aud' | 'rfbt' | 'tax';
 
 export type Topic = {
@@ -47,7 +49,21 @@ export type Question = {
   explanation: string;
   source?: string;
   reviewedAt?: string;
+  difficulty?: 'easy' | 'moderate' | 'difficult';
+  cognitiveLevel?: 'remembering' | 'understanding' | 'applying' | 'analyzing' | 'evaluating' | 'creating';
   origin: 'personal' | 'starter';
+};
+
+export type MistakeEntry = {
+  id: string;
+  questionId: string;
+  topicId: string;
+  at: string;
+  whyWrong: string;
+  correctedPrinciple: string;
+  nextReviewOn: string;
+  resolvedAt?: string;
+  reviewCount?: number;
 };
 
 export type QuizAttempt = {
@@ -57,6 +73,9 @@ export type QuizAttempt = {
   responses: Record<string, number>;
   score: number;
   durationSeconds: number;
+  topicResults?: Record<string, { correct: number; total: number }>;
+  reviewed?: boolean;
+  mode?: 'practice' | 'diagnostic' | 'mock';
 };
 
 export type Material = {
@@ -79,10 +98,14 @@ export type StudyState = {
   slots: WeeklySlot[];
   unavailableDates: string[];
   ratings: Record<string, Rating>;
+  actualMinutes?: Record<string, number>;
   completed: Record<string, string>;
   needsReview: Record<string, string>;
   personalQuestions: Question[];
+  importedLessons?: StudyLesson[];
+  importedQuestions?: Question[];
   attempts: QuizAttempt[];
+  mistakes?: MistakeEntry[];
   materials: Material[];
   savedAt?: string;
 };
@@ -100,9 +123,13 @@ export const EMPTY_STATE: StudyState = {
   ],
   unavailableDates: [],
   ratings: {},
+  actualMinutes: {},
   completed: {},
   needsReview: {},
   personalQuestions: [],
+  importedLessons: [],
+  importedQuestions: [],
   attempts: [],
+  mistakes: [],
   materials: [],
 };

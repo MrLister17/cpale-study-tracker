@@ -726,6 +726,30 @@
         "status": "needs_editorial_review"
       },
       {
+        "id": "afar-060",
+        "code": "10.0.1",
+        "title": "Translate from the Functional Currency into the Presentation Currency using closing/current rate method",
+        "section": "Translation of Foreign Currency Financial Statements (PAS 21 / PAS 29)",
+        "page": 11,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-061",
+        "code": "10.0.2",
+        "title": "Translate into Functional Currency (Remeasurement from Foreign Currency Financial Statements to the Functional Currency)",
+        "section": "Translation of Foreign Currency Financial Statements (PAS 21 / PAS 29)",
+        "page": 11,
+        "status": "needs_editorial_review"
+      },
+      {
+        "id": "afar-062",
+        "code": "10.0.3",
+        "title": "Restate the Financial Statements (Functional Currency of a Hyperinflationary Economy)",
+        "section": "Translation of Foreign Currency Financial Statements (PAS 21 / PAS 29)",
+        "page": 11,
+        "status": "needs_editorial_review"
+      },
+      {
         "id": "afar-035",
         "code": "11.0",
         "title": "Not-for-Profit Organizations Describe the nature of business transactions and financial reporting implications of:",
@@ -3672,7 +3696,7 @@
       {
         "id": "tax-075",
         "code": "6",
-        "title": "Analyze and determine tax implications of transactions by applying the tax rules and regulations, and formulate sound tax planning strategies within legal and ethical bounds to efficiently manage tax liabilities H. TAXATION UNDER THE LOCAL GOVERNMENT CODE (Local Government Taxation and Real Property Taxation under the Local Government Code)",
+        "title": "Analyze and determine tax implications of transactions by applying the tax rules and regulations, and formulate sound tax planning strategies within legal and ethical bounds to efficiently manage tax liabilities",
         "section": "DOCUMENTARY STAMP TAX",
         "page": 37,
         "status": "needs_editorial_review"
@@ -3681,7 +3705,7 @@
         "id": "tax-076",
         "code": "1",
         "title": "Describe the fundamental principles, scope of taxing power of local government units (LGUs)",
-        "section": "DOCUMENTARY STAMP TAX",
+        "section": "TAXATION UNDER THE LOCAL GOVERNMENT CODE (Local Government Taxation and Real Property Taxation under the Local Government Code)",
         "page": 37,
         "status": "needs_editorial_review"
       },
@@ -3689,7 +3713,7 @@
         "id": "tax-077",
         "code": "2",
         "title": "Describe and apply the scope and different types of local taxes (limited to real property tax, local tax imposed by provinces, municipalities and cities, and barangays)",
-        "section": "DOCUMENTARY STAMP TAX",
+        "section": "TAXATION UNDER THE LOCAL GOVERNMENT CODE (Local Government Taxation and Real Property Taxation under the Local Government Code)",
         "page": 38,
         "status": "needs_editorial_review"
       },
@@ -3697,7 +3721,7 @@
         "id": "tax-078",
         "code": "3",
         "title": "Identify the tax base and tax rates",
-        "section": "DOCUMENTARY STAMP TAX",
+        "section": "TAXATION UNDER THE LOCAL GOVERNMENT CODE (Local Government Taxation and Real Property Taxation under the Local Government Code)",
         "page": 38,
         "status": "needs_editorial_review"
       },
@@ -3705,7 +3729,7 @@
         "id": "tax-079",
         "code": "4",
         "title": "Determine the venue and time of payment",
-        "section": "DOCUMENTARY STAMP TAX",
+        "section": "TAXATION UNDER THE LOCAL GOVERNMENT CODE (Local Government Taxation and Real Property Taxation under the Local Government Code)",
         "page": 38,
         "status": "needs_editorial_review"
       },
@@ -3713,7 +3737,7 @@
         "id": "tax-080",
         "code": "5",
         "title": "Evaluate and apply the remedies available to the government and the taxpayer",
-        "section": "DOCUMENTARY STAMP TAX",
+        "section": "TAXATION UNDER THE LOCAL GOVERNMENT CODE (Local Government Taxation and Real Property Taxation under the Local Government Code)",
         "page": 38,
         "status": "needs_editorial_review"
       },
@@ -3721,7 +3745,7 @@
         "id": "tax-081",
         "code": "6",
         "title": "Analyze and determine tax implications of transactions by applying the tax rules and regulations, and formulate sound tax planning strategies within legal and ethical bounds to efficiently manage tax liabilities",
-        "section": "DOCUMENTARY STAMP TAX",
+        "section": "TAXATION UNDER THE LOCAL GOVERNMENT CODE (Local Government Taxation and Real Property Taxation under the Local Government Code)",
         "page": 38,
         "status": "needs_editorial_review"
       },
