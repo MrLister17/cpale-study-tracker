@@ -5,12 +5,12 @@ Generated from the local syllabus index. Flags identify entries to compare with 
 | Subject | Extracted entries | Flagged entries |
 |---|---:|---:|
 | FAR | 54 | 13 |
-| AFAR | 59 | 16 |
+| AFAR | 62 | 16 |
 | MAS | 21 | 10 |
 | AUD | 86 | 28 |
 | RFBT | 156 | 78 |
 | TAX | 86 | 43 |
-| **Total** | **462** | **188** |
+| **Total** | **465** | **188** |
 
 ## Review order
 

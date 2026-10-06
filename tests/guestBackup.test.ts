@@ -7,8 +7,9 @@ test('guest backup restores the plan, private questions, attempts, and notes', (
   const state: StudyState = {
     ...EMPTY_STATE,
     name: 'Sam', targetDate: '2027-05-15',
+    actualMinutes: { 'far-001': 75 },
     personalQuestions: [{ id: 'q1', subjectId: 'far', topicId: 'far-001', stem: 'Sample?', options: ['A', 'B', 'C', 'D'], answer: 0, explanation: 'For testing.', origin: 'personal' }],
-    attempts: [{ id: 'a1', at: '2026-10-04T00:00:00Z', questionIds: ['q1'], responses: { q1: 0 }, score: 1, durationSeconds: 12 }],
+    attempts: [{ id: 'a1', at: '2026-10-04T00:00:00Z', questionIds: ['q1'], responses: { q1: 0 }, score: 1, durationSeconds: 12, topicResults: { 'far-001': { correct: 1, total: 1 } }, reviewed: false, mode: 'practice' }],
     materials: [{ id: 'm1', topicId: 'far-001', title: 'My notes', notes: 'Remember this.' }],
   };
   assert.deepEqual(parseGuestBackup(createGuestBackup(state, '2026-10-04T00:00:00Z')), state);

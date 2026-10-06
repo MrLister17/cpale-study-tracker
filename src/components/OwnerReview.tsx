@@ -5,12 +5,12 @@ import { getSupabase } from '@/lib/supabase';
 import { allTopics, subjects, topicById } from '@/lib/syllabus';
 import type { ExamCycle } from '@/lib/types';
 
-type Guide = { topic_id: string; summary: string; lecture_prompt: string; practice_prompt: string; source_url: string | null; status: 'draft' | 'published'; reviewed_at: string | null };
-type DraftQuestion = { id: string; topic_id: string; stem: string; options: string[]; answer_index: number; explanation: string; source_url: string | null; status: 'draft' | 'published'; reviewed_at: string | null };
+type Guide = { topic_id: string; summary: string; lecture_prompt: string; practice_prompt: string; source_url: string | null; status: 'draft' | 'published'; reviewed_at: string | null; reviewed_by: string | null };
+type DraftQuestion = { id: string; topic_id: string; stem: string; options: string[]; answer_index: number; explanation: string; source_url: string | null; status: 'draft' | 'published'; reviewed_at: string | null; reviewed_by: string | null };
 type Usage = { students: number; waitlist: number; storage_bytes: number; database_bytes: number; approved_topics: number; published_guides: number; published_questions: number };
 type AccountRequest = { id: string; user_id: string; kind: 'export' | 'delete'; created_at: string };
-const blank = (topicId: string): Guide => ({ topic_id: topicId, summary: '', lecture_prompt: '', practice_prompt: '', source_url: subjects.find((subject) => subject.topics.some((topic) => topic.id === topicId))?.sourceUrl ?? null, status: 'draft', reviewed_at: null });
-const blankQuestion = (topicId: string): DraftQuestion => ({ id: crypto.randomUUID(), topic_id: topicId, stem: '', options: ['', '', '', ''], answer_index: 0, explanation: '', source_url: null, status: 'draft', reviewed_at: null });
+const blank = (topicId: string): Guide => ({ topic_id: topicId, summary: '', lecture_prompt: '', practice_prompt: '', source_url: subjects.find((subject) => subject.topics.some((topic) => topic.id === topicId))?.sourceUrl ?? null, status: 'draft', reviewed_at: null, reviewed_by: null });
+const blankQuestion = (topicId: string): DraftQuestion => ({ id: crypto.randomUUID(), topic_id: topicId, stem: '', options: ['', '', '', ''], answer_index: 0, explanation: '', source_url: null, status: 'draft', reviewed_at: null, reviewed_by: null });
 
 export function OwnerReview() {
   const supabase = useMemo(() => getSupabase(), []);
@@ -84,7 +84,9 @@ export function OwnerReview() {
     if (publish && (topicStatus[topicId] !== 'approved' || !guide.summary.trim() || !guide.lecture_prompt.trim() || !guide.practice_prompt.trim() || !guide.source_url?.trim())) {
       return setStatus('Approve the syllabus label and complete the note, lecture, practice, and source fields first.');
     }
-    const next: Guide = { ...guide, status: publish ? 'published' : 'draft', reviewed_at: publish ? new Date().toISOString() : null };
+    const { data: auth } = await supabase.auth.getUser();
+    if (publish && !auth.user) return setStatus('Sign in as the owner before publishing.');
+    const next: Guide = { ...guide, status: publish ? 'published' : 'draft', reviewed_at: publish ? new Date().toISOString() : null, reviewed_by: publish ? auth.user!.id : null };
     const { error } = await supabase.from('topic_guides').upsert(next);
     if (error) return setStatus(error.message);
     setGuide(next); setGuideStatus((items) => ({ ...items, [topicId]: next.status })); setStatus(publish ? 'Guide published.' : 'Draft guide saved.');
@@ -99,7 +101,9 @@ export function OwnerReview() {
     if (!supabase) return;
     if (!editing.stem.trim() || editing.options.length !== 4 || editing.options.some((option) => !option.trim()) || !editing.explanation.trim()) return setStatus('Complete the question, four options, and explanation.');
     if (publish && (topicStatus[topicId] !== 'approved' || !editing.source_url?.trim())) return setStatus('Approve the topic and add a source before publishing.');
-    const next: DraftQuestion = { ...editing, topic_id: topicId, status: publish ? 'published' : 'draft', reviewed_at: publish ? new Date().toISOString() : null };
+    const { data: auth } = await supabase.auth.getUser();
+    if (publish && !auth.user) return setStatus('Sign in as the owner before publishing.');
+    const next: DraftQuestion = { ...editing, topic_id: topicId, status: publish ? 'published' : 'draft', reviewed_at: publish ? new Date().toISOString() : null, reviewed_by: publish ? auth.user!.id : null };
     const previouslyPublished = questions.find((item) => item.id === next.id)?.status === 'published';
     const { error } = await supabase.from('starter_questions').upsert(next);
     if (error) return setStatus(error.message);

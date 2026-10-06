@@ -52,6 +52,10 @@ def main() -> None:
             lines = page.splitlines()
             for index, line in enumerate(lines):
                 match_section = SECTION.match(line)
+                # A section heading may wrap before its percentage column
+                # (for example, Taxation under the Local Government Code).
+                if not match_section and re.match(r'^\s*[A-Z]\.\s+', line) and index + 1 < len(lines):
+                    match_section = SECTION.match(f'{line.rstrip()}  {lines[index + 1].strip()}')
                 if match_section:
                     section = clean(match_section.group(2))
                     continue
@@ -62,7 +66,7 @@ def main() -> None:
                 parts = [clean(raw)]
                 for following in lines[index + 1:index + 5]:
                     stripped = following.strip()
-                    if not stripped or NUMBERED.match(following) or SECTION.match(following):
+                    if not stripped or NUMBERED.match(following) or re.match(r'^\s*[A-Z]\.\s+', following):
                         break
                     if stripped.lower().startswith(('total', 'table of specifications', 'philippine q')):
                         break
@@ -83,6 +87,24 @@ def main() -> None:
                     'page': page_no,
                     'status': 'needs_editorial_review',
                 })
+        # AFAR page 11 presents these three outcomes beneath a numbered
+        # section heading. The generic action-line parser misses them because
+        # the row labels are indented under the multi-line heading. Preserve
+        # all existing IDs by assigning stable new IDs, then place the rows
+        # after the preceding derivatives/hedging outcome in source order.
+        if sid == 'afar':
+            translation = [
+                ('afar-060', '10.0.1', 'Translate from the Functional Currency into the Presentation Currency using closing/current rate method'),
+                ('afar-061', '10.0.2', 'Translate into Functional Currency (Remeasurement from Foreign Currency Financial Statements to the Functional Currency)'),
+                ('afar-062', '10.0.3', 'Restate the Financial Statements (Functional Currency of a Hyperinflationary Economy)'),
+            ]
+            insert_after = next(index for index, topic in enumerate(topics) if topic['id'] == 'afar-034') + 1
+            topics[insert_after:insert_after] = [
+                {'id': topic_id, 'code': code, 'title': title,
+                 'section': 'Translation of Foreign Currency Financial Statements (PAS 21 / PAS 29)',
+                 'page': 11, 'status': 'needs_editorial_review'}
+                for topic_id, code, title in translation
+            ]
         result.append({
             'id': sid, 'name': name, 'short': short,
             'color': color, 'pale': pale, 'flower': flower,

@@ -16,9 +16,10 @@ const stateSchema = z.object({
   slots: z.array(z.object({ id: z.string(), weekday: z.number().int().min(0).max(6), start: z.string(), end: z.string() })).max(100),
   unavailableDates: z.array(z.string()).max(1000),
   ratings: z.record(z.enum(['new', 'developing', 'confident'])),
+  actualMinutes: z.record(topicId, z.number().int().min(0).max(100000)).optional(),
   completed: z.record(z.string()), needsReview: z.record(z.string()),
   personalQuestions: z.array(question).max(10000),
-  attempts: z.array(z.object({ id: z.string(), at: z.string(), questionIds: z.array(z.string()), responses: z.record(z.number().int().min(0).max(3)), score: z.number().int().min(0), durationSeconds: z.number().min(0) })).max(10000),
+  attempts: z.array(z.object({ id: z.string(), at: z.string(), questionIds: z.array(z.string()), responses: z.record(z.number().int().min(0).max(3)), score: z.number().int().min(0), durationSeconds: z.number().min(0), topicResults: z.record(topicId, z.object({ correct: z.number().int().min(0), total: z.number().int().min(0) })).optional(), reviewed: z.boolean().optional(), mode: z.enum(['practice', 'diagnostic', 'mock']).optional() })).max(10000),
   materials: z.array(z.object({ id: z.string(), topicId, title: z.string(), url: z.string().optional(), notes: z.string().optional() })).max(10000),
   savedAt: z.string().optional(),
 });

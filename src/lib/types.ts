@@ -57,6 +57,9 @@ export type QuizAttempt = {
   responses: Record<string, number>;
   score: number;
   durationSeconds: number;
+  topicResults?: Record<string, { correct: number; total: number }>;
+  reviewed?: boolean;
+  mode?: 'practice' | 'diagnostic' | 'mock';
 };
 
 export type Material = {
@@ -79,6 +82,7 @@ export type StudyState = {
   slots: WeeklySlot[];
   unavailableDates: string[];
   ratings: Record<string, Rating>;
+  actualMinutes?: Record<string, number>;
   completed: Record<string, string>;
   needsReview: Record<string, string>;
   personalQuestions: Question[];
@@ -100,6 +104,7 @@ export const EMPTY_STATE: StudyState = {
   ],
   unavailableDates: [],
   ratings: {},
+  actualMinutes: {},
   completed: {},
   needsReview: {},
   personalQuestions: [],

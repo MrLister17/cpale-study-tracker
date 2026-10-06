@@ -1,4 +1,5 @@
 import { allTopics, findSubjectForTopic, subjects } from './syllabus';
+import { topicExamShare, topicGroupExamShare } from './tosWeights';
 import type { StudyState, StudyTask, TaskKind } from './types';
 
 export function phDate(now = new Date()): string {
@@ -17,6 +18,12 @@ export function addDays(day: string, count: number): string {
 
 export function daysBetween(a: string, b: string): number {
   return Math.round((Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`)) / 86400000);
+}
+
+function validDay(day: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) return false;
+  const parsed = new Date(`${day}T00:00:00Z`);
+  return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === day;
 }
 
 function dayOfWeek(day: string): number {
@@ -41,15 +48,20 @@ export type PlanResult = {
   unscheduled: number;
   capacityMinutes: number;
   coveragePercent: number;
+  weightedCoveragePercent: number;
+  remainingMinutes: number;
+  shortfallMinutes: number;
 };
 
-export function orderedTopicsForPlan(ratings: StudyState['ratings'] = {}) {
+export function orderedTopicsForPlan(ratings: StudyState['ratings'] = {}, needsReview: StudyState['needsReview'] = {}) {
   const rank = { new: 0, developing: 1, confident: 2 };
+  const priority = (id: string) => needsReview[id] ? -1 : rank[ratings[id] ?? 'new'];
   const ordered: typeof allTopics = [];
-  for (const level of [0, 1, 2]) {
+  for (const level of [-1, 0, 1, 2]) {
     const bySubject = subjects.map((subject) => subject.topics
-      .filter((topic) => rank[ratings[topic.id] ?? 'new'] === level)
-      .sort((a, b) => a.page - b.page || a.id.localeCompare(b.id)));
+      .filter((topic) => priority(topic.id) === level)
+      .sort((a, b) => topicGroupExamShare(b.id) - topicGroupExamShare(a.id) ||
+        a.page - b.page || a.id.localeCompare(b.id)));
     for (let index = 0; bySubject.some((topics) => index < topics.length); index++) {
       for (const topics of bySubject) if (topics[index]) ordered.push(topics[index]);
     }
@@ -59,12 +71,27 @@ export function orderedTopicsForPlan(ratings: StudyState['ratings'] = {}) {
 
 export function buildPlan(state: StudyState, today = phDate()): PlanResult {
   const end = state.targetDate;
-  const totalMinutes = allTopics.length * (20 + 20 + 20 + 3 * 20);
-  if (!end || daysBetween(today, end) <= 0) {
-    return { tasks: [], totalMinutes, scheduledMinutes: 0, unscheduled: allTopics.length, capacityMinutes: 0, coveragePercent: 0 };
+  const dateIsUsable = validDay(end) && validDay(today) && daysBetween(today, end) > 0;
+  const completed = state.completed;
+  const weakIds = Object.keys(state.needsReview ?? {}).filter((id) => allTopics.some((topic) => topic.id === id));
+  const totalMinutes = allTopics.length * 120 + 3 * 60 + weakIds.length * 20;
+  let finishedMinutes = 0;
+  for (const topic of allTopics) {
+    for (const id of [`study:${topic.id}`, `lecture:${topic.id}`, `quiz:${topic.id}`,
+      `review1:${topic.id}`, `review7:${topic.id}`, `review21:${topic.id}`]) {
+      if (completed[id]) finishedMinutes += 20;
+    }
+  }
+  for (const id of weakIds) if (completed[`weak:${id}`]) finishedMinutes += 20;
+  for (const number of [1, 2, 3]) if (completed[`mock:${number}`]) finishedMinutes += 60;
+  const remainingMinutes = Math.max(0, totalMinutes - finishedMinutes);
+  if (!dateIsUsable) {
+    return { tasks: [], totalMinutes, scheduledMinutes: 0, unscheduled: allTopics.length,
+      capacityMinutes: 0, coveragePercent: 0, weightedCoveragePercent: 0,
+      remainingMinutes, shortfallMinutes: validDay(end) ? remainingMinutes : 0 };
   }
 
-  const topics = orderedTopicsForPlan(state.ratings);
+  const topics = orderedTopicsForPlan(state.ratings, state.needsReview);
   const firstPass: Pending[] = [];
   for (const topic of topics) {
     firstPass.push(
@@ -78,12 +105,26 @@ export function buildPlan(state: StudyState, today = phDate()): PlanResult {
     id: `weak:${topicId}`, topicId, kind: 'review', minutes: 20, due,
     title: `Revisit missed question: ${allTopics.find((topic) => topic.id === topicId)?.title ?? topicId}`,
   }));
+  // A completed quiz must retain its spaced reviews when the user replans on
+  // another day or restores a backup. Reviews are anchored to the attempt day.
+  for (const topic of allTopics) {
+    const completedAt = completed[`quiz:${topic.id}`];
+    if (!completedAt) continue;
+    const attemptDate = /^\d{4}-\d{2}-\d{2}$/.test(completedAt) ? completedAt :
+      Number.isNaN(Date.parse(completedAt)) ? today : phDate(new Date(completedAt));
+    for (const offset of [1, 7, 21]) {
+      const id = `review${offset}:${topic.id}`;
+      if (!completed[id]) reviewQueue.push({
+        id, topicId: topic.id, kind: 'review', minutes: 20,
+        due: addDays(attemptDate, offset), title: `Recall and correct: ${topic.title}`,
+      });
+    }
+  }
   const tasks: StudyTask[] = [];
   let capacityMinutes = 0;
   let pointer = 0;
   let scheduledMinutes = 0;
   let mockNumber = 0;
-  const completed = state.completed;
   const unavailable = new Set(state.unavailableDates);
   const finalWindowStart = addDays(end, -14);
 
@@ -109,7 +150,7 @@ export function buildPlan(state: StudyState, today = phDate()): PlanResult {
         let item: Pending | undefined;
         const dueIndex = reviewQueue.findIndex((review) => (review.due ?? day) <= day && !completed[review.id] && review.minutes <= usableEnd - cursor);
         if (dueIndex >= 0) item = reviewQueue.splice(dueIndex, 1)[0];
-        if (!item && day >= finalWindowStart && mockNumber < 3 && usableEnd - cursor >= 60) {
+        while (!item && day >= finalWindowStart && mockNumber < 3 && usableEnd - cursor >= 60) {
           const id = `mock:${mockNumber + 1}`;
           mockNumber++;
           if (!completed[id]) item = { id, kind: 'mock', title: `Mixed mock quiz ${mockNumber}`, minutes: 60 };
@@ -145,9 +186,14 @@ export function buildPlan(state: StudyState, today = phDate()): PlanResult {
   const scheduledTopics = new Set(tasks.filter((task) => task.kind === 'quiz').map((task) => task.topicId));
   const completedTopics = new Set(Object.keys(completed).filter((id) => id.startsWith('quiz:')).map((id) => id.slice(5)));
   const covered = new Set([...scheduledTopics, ...completedTopics]);
+  const weightedCoverage = subjects.reduce((total, subject) => total +
+    subject.topics.reduce((subjectTotal, topic) => subjectTotal +
+      (covered.has(topic.id) ? topicExamShare(topic.id) : 0), 0), 0) / subjects.length;
   return {
     tasks, totalMinutes, scheduledMinutes,
     unscheduled: Math.max(0, allTopics.length - covered.size), capacityMinutes,
     coveragePercent: Math.round(covered.size / allTopics.length * 100),
+    weightedCoveragePercent: Math.round(weightedCoverage * 100),
+    remainingMinutes, shortfallMinutes: Math.max(0, remainingMinutes - scheduledMinutes),
   };
 }
